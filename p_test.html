@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Loading</title>
+  <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .progress-bar {
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 33%;
+      transition: width 0.5s ease;
+    }
+
+    .dropdown {
+      position: relative;
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: nowrap;
+
+      
+      padding-bottom: 8px;
+    }
+
+    .dropdown-select {
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      font-size: 16px;
+      appearance: none;
+      background-image: url("data:image.svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 20px;
+      cursor: pointer;
+      flex-grow: 1;
+    }
+
+    .dropdown-option {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+    }
+
+    .dropdown-option img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      object-fit: contain;
+    }
+
+    .selected-icon {
+      display: none;
+      margin-top: 16px;
+      text-align: left;
+    }
+
+    .selected-icon.active {
+      display: block;
+    }
+
+    .icon-text {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .icon-text img {
+      width: 400px;
+      height: 80px;
+      margin-right: 16px;
+      object-fit: contain;
+    }
+
+    .icon-text span {
+      font-size: 48px;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 16px;
+      min-width: 160px;
+      flex: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-4">
+
+  <!-- 下拉框 + 输入框 -->
+  <div class="dropdown flex gap-4 items-center overflow-x-auto pb-2 mb-6 w-full max-w-2xl mx-auto mt-10">
+    <select class="dropdown-select min-w-[180px] flex-1" id="paymentSelect">
+      <option value="" disabled selected>Select payment method</option>
+      <option value="apple" class="dropdown-option">
+        <img src="/img/apple.png" alt="Apple" width="24" height="24" />
+        Apple
+      </option>
+      <option value="steam" class="dropdown-option">
+        <img src="/img/steam.png" alt="Steam" width="24" height="24" />
+        Steam
+      </option>
+      <option value="razer" class="dropdown-option">
+        <img src="/img/razaer.png" alt="Razer" width="24" height="24" />
+        Razer
+      </option>
+      <option value="xbox" class="dropdown-option">
+        <img src="/img/xbox.png" alt="Xbox" width="24" height="24" />
+        Xbox
+      </option>
+      <option value="btc" class="dropdown-option">
+        <img src="/img/btc.png" alt="BTC" width="24" height="24" />
+        BTC
+      </option>
+      <option value="applepay" class="dropdown-option">
+        <img src="/img/applepay.png" alt="Apple Pay" width="24" height="24" />
+        Apple Pay
+      </option>
+      <option value="chime" class="dropdown-option">
+        <img src="/img/chime.png" alt="Chime" width="24" height="24" />
+        Chime
+      </option>
+      <option value="cashapp" class="dropdown-option">
+        <img src="/img/cashapp.png" alt="Cashapp" width="24" height="24" />
+        Cash
+      </option>
+      <option value="paypal" class="dropdown-option">
+        <img src="/img/paypal.png" alt="PayPal" width="24" height="24" />
+        PayPal
+      </option>
+      <option value="zelle" class="dropdown-option">
+        <img src="/img/zelle.png" alt="Zelle" width="24" height="24" />
+        Zelle
+      </option>
+      <option value="venmo" class="dropdown-option">
+        <img src="/img/venmo.png" alt="Venmo" width="24" height="24" />
+        Venmo
+      </option>
+    </select>
+
+    <input type="number" id="loadingCapacity" class="px-4 py-3 border rounded-lg border-gray-300" placeholder="Loading capacity" />
+    <input type="number" id="totalLoading" class="px-4 py-3 border rounded-lg border-gray-300" placeholder="Total loading" />
+  </div>
+
+  <!-- 卡片主体 -->
+  <div class="bg-white rounded-xl shadow-lg w-full max-w-2xl min-h-[500px] mx-auto">
+    <div class="p-6 md:p-8">
+      <!-- 图标展示区域 -->
+      <div class="selected-icon active" id="appleIcon">
+        <div class="icon-text">
+          <img src="/img/apple.png" alt="Apple" width="64" height="64" />
+          <span>Apple</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="steamIcon">
+        <div class="icon-text">
+          <img src="/img/steam.png" alt="Steam" width="64" height="64" />
+          <span>Steam</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="razerIcon">
+        <div class="icon-text">
+          <img src="/img/razer.png" alt="Razer" width="64" height="64" />
+          <span>Razer</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="xboxIcon">
+        <div class="icon-text">
+          <img src="/img/xbox.png" alt="Xbox" width="64" height="64" />
+          <span>Xbox</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="btcIcon">
+        <div class="icon-text">
+          <img src="/img/btc.png" alt="BTC" width="64" height="64" />
+          <span>BTC</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="applepayIcon">
+        <div class="icon-text">
+          <img src="/img/applepay.png" alt="Apple Pay" width="64" height="64" />
+          <span>Apple Pay</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="chimeIcon">
+        <div class="icon-text">
+          <img src="/img/chime.png" alt="Chime" width="64" height="64" />
+          <span>Chime</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="cashappIcon">
+        <div class="icon-text">
+          <img src="/img/cashapp.png" alt="Cashapp" width="64" height="64" />
+          <span>Cashapp</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="paypalIcon">
+        <div class="icon-text">
+          <img src="/img/paypal.png" alt="PayPal" width="64" height="64" />
+          <span>PayPal</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="zelleIcon">
+        <div class="icon-text">
+          <img src="/img/zelle.png" alt="Zelle" width="64" height="64" />
+          <span>Zelle</span>
+        </div>
+      </div>
+
+      <div class="selected-icon" id="venmoIcon">
+        <div class="icon-text">
+          <img src="/img/venmo.png" alt="Venmo" width="64" height="64" />
+          <span>Venmo</span>
+        </div>
+      </div>
+
+      <!-- 加载信息 -->
+      <div class="flex justify-between mb-6 mt-8">
+        <div class="text-gray-700 text-xl font-medium">Loading capacity: <span id="displayCapacity" class="text-black font-semibold">$500</span></div>
+        <div class="text-gray-700 text-xl font-medium">Total loading: <span id="displayTotal" class="text-black font-semibold">$1500</span></div>
+      </div>
+
+      <!-- 进度条 -->
+      <div class="progress-bar bg-gray-200 mb-6">
+        <div id="progressFill" class="progress-fill bg-black h-full" style="width: 33%;"></div>
+      </div>
+
+      <!-- 百分比文本 -->
+      <div id="loadingPercentText" class="text-center text-gray-600 text-xl mb-8">Loading.... 33.00%</div>
+
+      <!-- 提交按钮 -->
+      <button class="w-full bg-black text-white py-5 px-8 rounded-lg font-medium hover:bg-gray-800 transition-colors text-xl">
+        Continue top-up
+      </button>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="mt-8 w-full text-center text-gray-500 text-sm">
+    <p>created by <a href="https://space.coze.cn" class="text-blue-500 hover:underline">coze space</a></p>
+    <p>页面内容均由 AI 生成，仅供参考</p>
+  </footer>
+
+  <!-- JS 逻辑 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const paymentSelect = document.getElementById('paymentSelect');
+      const icons = {
+        apple: document.getElementById('appleIcon'),
+        steam: document.getElementById('steamIcon'),
+        razer: document.getElementById('razerIcon'),
+        xbox: document.getElementById('xboxIcon'),
+        btc: document.getElementById('btcIcon'),
+        applepay: document.getElementById('applepayIcon'),
+        chime: document.getElementById('chimeIcon'),
+        cashapp: document.getElementById('cashappIcon'),
+        paypal: document.getElementById('paypalIcon'),
+        zelle: document.getElementById('zelleIcon'),
+        venmo: document.getElementById('venmoIcon')
+      };
+
+      const loadingCapacityInput = document.getElementById('loadingCapacity');
+      const totalLoadingInput = document.getElementById('totalLoading');
+
+      const displayCapacity = document.getElementById('displayCapacity');
+      const displayTotal = document.getElementById('displayTotal');
+      const displayPercentText = document.getElementById('loadingPercentText');
+      const progressFill = document.getElementById('progressFill');
+
+      function updateProgress() {
+        let capacity = parseFloat(loadingCapacityInput.value) || 0;
+        let total = parseFloat(totalLoadingInput.value) || 0;
+
+        if (total === 0) {
+          displayCapacity.textContent = `$0`;
+          displayTotal.textContent = `$0`;
+          displayPercentText.textContent = `Loading.... 0.00%`;
+          progressFill.style.width = '0%';
+        } else {
+          let percent = (capacity / total) * 100;
+          displayCapacity.textContent = `$${capacity}`;
+          displayTotal.textContent = `$${total}`;
+          displayPercentText.textContent = `Loading.... ${percent.toFixed(2)}%`;
+          progressFill.style.width = `${percent}%`;
+        }
+      }
+
+      // 下拉框切换图标
+      paymentSelect.addEventListener('change', function () {
+        Object.values(icons).forEach(icon => icon.classList.remove('active'));
+        const selectedValue = this.value;
+        const selectedIcon = icons[selectedValue];
+        if (selectedIcon) {
+          selectedIcon.classList.add('active');
+        }
+      });
+
+      // 输入框变化时更新数据
+      loadingCapacityInput.addEventListener('input', updateProgress);
+      totalLoadingInput.addEventListener('input', updateProgress);
+
+      // 初始化一次
+      updateProgress();
+    });
+  </script>
+</body>
+</html>
