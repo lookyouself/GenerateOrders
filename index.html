@@ -443,12 +443,158 @@
         appleIcon.classList.add('active');
       }
 
-      // 更新货币符号
+      // 更新货币符号和所有显示数据
       function updateCurrencySymbols() {
         const selectedCountry = countrySelect.value;
         const symbol = currencySymbols[selectedCountry] || '$';
         
+        // 更新货币符号
         capacityCurrency.textContent = symbol;
         totalCurrency.textContent = symbol;
         displayCapacityCurrency.textContent = symbol;
         displayTotalCurrency.textContent = symbol;
+        displayAmountCurrency.textContent = symbol; // 更新金额的货币符号
+        
+        // 更新显示值的格式
+        updateProgress();
+        updateAdditionalInfo(); // 更新银行、账户和金额数据
+      }
+
+      function updateProgress() {
+        let capacity = parseFloat(loadingCapacityInput.value) || 0;
+        let total = parseFloat(totalLoadingInput.value) || 0;
+
+        if (total === 0) {
+          displayCapacity.textContent = `0`;
+          displayTotal.textContent = `0`;
+          displayPercentText.textContent = `Loading.... 0.00%`;
+          progressFill.style.width = '0%';
+        } else {
+          let percent = Math.min((capacity / total) * 100, 100); // 确保不超过100%
+          displayCapacity.textContent = `${capacity.toLocaleString()}`;
+          displayTotal.textContent = `${total.toLocaleString()}`;
+          displayPercentText.textContent = `Loading.... ${percent.toFixed(2)}%`;
+          progressFill.style.width = `${percent}%`;
+          
+          // 更新按钮状态
+          if (percent >= 100) {
+            continueButton.textContent = 'Complete';
+            continueButton.classList.add('bg-green-600');
+            continueButton.classList.remove('bg-primary', 'hover:bg-primary/90');
+          } else {
+            continueButton.textContent = 'Continue top-up';
+            continueButton.classList.remove('bg-green-600');
+            continueButton.classList.add('bg-primary', 'hover:bg-primary/90');
+          }
+        }
+      }
+
+      // 更新新增的输入框显示
+      function updateAdditionalInfo() {
+        const bank = bankInput.value || '-';
+        const account = accountInput.value || '-';
+        let amount = amountInput.value || '-';
+        
+        if (amount !== '-') {
+          amount = `${parseFloat(amount).toLocaleString()}`;
+        }
+        
+        // 更新显示区域
+        displayBank.textContent = bank;
+        displayAccount.textContent = account;
+        displayAmount.textContent = amount;
+      }
+
+      // 下拉框切换图标
+      paymentSelect.addEventListener('change', function () {
+        // 隐藏所有图标
+        Object.values(icons).forEach(icon => {
+          icon.classList.remove('active');
+          icon.classList.add('opacity-0', 'transform', 'translate-y-4');
+          setTimeout(() => {
+            icon.classList.add('hidden');
+          }, 300);
+        });
+        
+        // 显示选中的图标
+        const selectedValue = this.value;
+        const selectedIcon = icons[selectedValue];
+        if (selectedIcon) {
+          setTimeout(() => {
+            selectedIcon.classList.remove('hidden');
+            setTimeout(() => {
+              selectedIcon.classList.add('active');
+              selectedIcon.classList.remove('opacity-0', 'transform', 'translate-y-4');
+            }, 50);
+          }, 300);
+        }
+      });
+
+      // 国家/地区下拉框变化时更新货币符号和所有数据
+      countrySelect.addEventListener('change', updateCurrencySymbols);
+
+      // 输入框变化时更新数据
+      loadingCapacityInput.addEventListener('input', updateProgress);
+      totalLoadingInput.addEventListener('input', updateProgress);
+      
+      // 新增输入框的事件监听
+      bankInput.addEventListener('input', updateAdditionalInfo);
+      accountInput.addEventListener('input', updateAdditionalInfo);
+      amountInput.addEventListener('input', updateAdditionalInfo);
+      
+      // 输入框聚焦时的动画效果
+      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, amountInput];
+      inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+          input.parentElement.classList.add('scale-[1.02]');
+          input.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        
+        input.addEventListener('blur', () => {
+          input.parentElement.classList.remove('scale-[1.02]');
+        });
+      });
+
+      // 按钮点击效果
+      continueButton.addEventListener('click', function() {
+        this.classList.add('scale-[0.98]');
+        setTimeout(() => {
+          this.classList.remove('scale-[0.98]');
+          
+          // 如果已完成，添加完成动画
+          if (this.textContent === 'Complete') {
+            progressFill.classList.add('bg-green-600');
+            displayPercentText.textContent = 'Completed! 100.00%';
+            
+            // 3秒后重置
+            setTimeout(() => {
+              progressFill.classList.remove('bg-green-600');
+              loadingCapacityInput.value = initialCapacity;
+              totalLoadingInput.value = initialTotal;
+              bankInput.value = '';
+              accountInput.value = '';
+              amountInput.value = '';
+              updateProgress();
+              updateAdditionalInfo();
+              updateCurrencySymbols(); // 确保重置后货币符号正确
+            }, 3000);
+          }
+        }, 150);
+      });
+
+      // 初始化一次
+      updateProgress();
+      updateAdditionalInfo();
+      updateCurrencySymbols(); // 初始化货币符号和所有显示数据
+      
+      // 添加淡入动画
+      const card = document.querySelector('.max-w-6xl');
+      card.classList.add('opacity-0', 'transform', 'translate-y-8');
+      setTimeout(() => {
+        card.classList.remove('opacity-0', 'translate-y-8');
+        card.classList.add('transition-all', 'duration-700');
+      }, 100);
+    });
+  </script>
+</body>
+</html>    
