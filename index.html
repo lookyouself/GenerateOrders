@@ -65,7 +65,7 @@
     <div class="bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl">
       <h2 class="text-xl font-bold mb-6 text-primary">Payment Information</h2>
       
-      <!-- 调整为2+1+2+2+1+2+2的网格布局 -->
+      <!-- 修改为2+2+1+1+2+2+2的网格布局 -->
       <div class="grid grid-cols-12 gap-2 md:gap-4">
         <div class="col-span-12 md:col-span-2">
           <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
@@ -182,7 +182,7 @@
         </div>
         
         <!-- 新增国家/地区下拉框 -->
-        <div class="col-span-12 md:col-span-1">
+        <div class="col-span-12 md:col-span-2">
           <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="countrySelect">
             <option value="US" selected>US</option>
             <option value="UK">UK</option>
@@ -190,14 +190,14 @@
           </select>
         </div>
         
-        <div class="col-span-12 md:col-span-2">
+        <div class="col-span-12 md:col-span-1">
           <div class="input-with-currency">
             <input type="number" id="loadingCapacity" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Loading capacity" value="500" />
             <span class="currency-symbol text-primary font-medium" id="capacityCurrency">$</span>
           </div>
         </div>
         
-        <div class="col-span-12 md:col-span-2">
+        <div class="col-span-12 md:col-span-1">
           <div class="input-with-currency">
             <input type="number" id="totalLoading" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Total loading" value="1500" />
             <span class="currency-symbol text-primary font-medium" id="totalCurrency">$</span>
@@ -205,7 +205,7 @@
         </div>
         
         <!-- 调整顺序：先银行 -->
-        <div class="col-span-12 md:col-span-1">
+        <div class="col-span-12 md:col-span-2">
           <input type="text" id="bank" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Bank" />
         </div>
         
