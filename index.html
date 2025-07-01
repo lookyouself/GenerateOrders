@@ -60,14 +60,15 @@
 </head>
 <body class="min-h-screen bg-gray-100 font-inter p-4 md:p-8">
 
-  <div class="max-w-6xl mx-auto space-y-8">
+  <div class="max-w-7xl mx-auto space-y-8">
     <!-- 顶部面板：下拉框 + 输入框（一行显示） -->
     <div class="bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl">
       <h2 class="text-xl font-bold mb-6 text-primary">Payment Information</h2>
       
-      <!-- 修改为2+2+1+1+2+2+2的网格布局 -->
-      <div class="grid grid-cols-12 gap-2 md:gap-4">
-        <div class="col-span-12 md:col-span-2">
+      <!-- 修改为在大屏幕上一行显示所有7个元素的网格布局 -->
+      <div class="grid grid-cols-1 lg:grid-cols-7 gap-3">
+        <!-- 支付方式选择 -->
+        <div class="col-span-1">
           <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
             <option value="" disabled>Select payment method</option>
             <option value="apple" selected>
@@ -181,8 +182,8 @@
           </select>
         </div>
         
-        <!-- 新增国家/地区下拉框 -->
-        <div class="col-span-12 md:col-span-2">
+        <!-- 国家/地区下拉框 -->
+        <div class="col-span-1">
           <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="countrySelect">
             <option value="US" selected>US</option>
             <option value="UK">UK</option>
@@ -190,32 +191,34 @@
           </select>
         </div>
         
-        <div class="col-span-12 md:col-span-1">
+        <!-- 加载容量 -->
+        <div class="col-span-1">
           <div class="input-with-currency">
             <input type="number" id="loadingCapacity" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Loading capacity" value="500" />
             <span class="currency-symbol text-primary font-medium" id="capacityCurrency">$</span>
           </div>
         </div>
         
-        <div class="col-span-12 md:col-span-1">
+        <!-- 总加载量 -->
+        <div class="col-span-1">
           <div class="input-with-currency">
             <input type="number" id="totalLoading" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Total loading" value="1500" />
             <span class="currency-symbol text-primary font-medium" id="totalCurrency">$</span>
           </div>
         </div>
         
-        <!-- 调整顺序：先银行 -->
-        <div class="col-span-12 md:col-span-2">
+        <!-- 银行 -->
+        <div class="col-span-1">
           <input type="text" id="bank" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Bank" />
         </div>
         
-        <!-- 调整顺序：再账户 -->
-        <div class="col-span-12 md:col-span-2">
+        <!-- 账户 -->
+        <div class="col-span-1">
           <input type="text" id="account" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Account" />
         </div>
         
-        <!-- 调整顺序：最后金额 -->
-        <div class="col-span-12 md:col-span-2">
+        <!-- 金额 -->
+        <div class="col-span-1">
           <div class="input-with-currency">
             <input type="number" id="amount" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Amount" />
             <span class="currency-symbol text-primary font-medium" id="amountCurrency">₦</span>
@@ -224,7 +227,7 @@
       </div>
     </div>
     
-    <!-- 底部面板：卡片主体 - 已缩小尺寸 -->
+    <!-- 底部面板：卡片主体 -->
     <div class="bg-white rounded-xl shadow-lg max-w-3xl mx-auto overflow-hidden transform transition-all hover:shadow-xl card-shadow">
       <div class="p-4 md:p-6">
         <!-- 图标展示区域 -->
@@ -256,7 +259,6 @@
           </div>
         </div>
 
-        <!-- Amazon图标调整到Xbox之后 -->
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="amazonIcon">
           <div class="flex items-center">
             <img src="/GenerateOrders/img/amazon.png" alt="Amazon" class="w-24 h-24 mr-9 object-contain" />
@@ -450,146 +452,3 @@
         totalCurrency.textContent = symbol;
         displayCapacityCurrency.textContent = symbol;
         displayTotalCurrency.textContent = symbol;
-        
-        // 更新显示值的格式
-        updateProgress();
-      }
-
-      function updateProgress() {
-        let capacity = parseFloat(loadingCapacityInput.value) || 0;
-        let total = parseFloat(totalLoadingInput.value) || 0;
-
-        if (total === 0) {
-          displayCapacity.textContent = `0`;
-          displayTotal.textContent = `0`;
-          displayPercentText.textContent = `Loading.... 0.00%`;
-          progressFill.style.width = '0%';
-        } else {
-          let percent = Math.min((capacity / total) * 100, 100); // 确保不超过100%
-          displayCapacity.textContent = `${capacity.toLocaleString()}`;
-          displayTotal.textContent = `${total.toLocaleString()}`;
-          displayPercentText.textContent = `Loading.... ${percent.toFixed(2)}%`;
-          progressFill.style.width = `${percent}%`;
-          
-          // 更新按钮状态
-          if (percent >= 100) {
-            continueButton.textContent = 'Complete';
-            continueButton.classList.add('bg-green-600');
-            continueButton.classList.remove('bg-primary', 'hover:bg-primary/90');
-          } else {
-            continueButton.textContent = 'Continue top-up';
-            continueButton.classList.remove('bg-green-600');
-            continueButton.classList.add('bg-primary', 'hover:bg-primary/90');
-          }
-        }
-      }
-
-      // 更新新增的输入框显示
-      function updateAdditionalInfo() {
-        const bank = bankInput.value || '-';
-        const account = accountInput.value || '-';
-        let amount = amountInput.value || '-';
-        
-        if (amount !== '-') {
-          amount = `${parseFloat(amount).toLocaleString()}`;
-        }
-        
-        // 更新显示区域
-        displayBank.textContent = bank;
-        displayAccount.textContent = account;
-        displayAmount.textContent = amount;
-      }
-
-      // 下拉框切换图标
-      paymentSelect.addEventListener('change', function () {
-        // 隐藏所有图标
-        Object.values(icons).forEach(icon => {
-          icon.classList.remove('active');
-          icon.classList.add('opacity-0', 'transform', 'translate-y-4');
-          setTimeout(() => {
-            icon.classList.add('hidden');
-          }, 300);
-        });
-        
-        // 显示选中的图标
-        const selectedValue = this.value;
-        const selectedIcon = icons[selectedValue];
-        if (selectedIcon) {
-          setTimeout(() => {
-            selectedIcon.classList.remove('hidden');
-            setTimeout(() => {
-              selectedIcon.classList.add('active');
-              selectedIcon.classList.remove('opacity-0', 'transform', 'translate-y-4');
-            }, 50);
-          }, 300);
-        }
-      });
-
-      // 国家/地区下拉框变化时更新货币符号
-      countrySelect.addEventListener('change', updateCurrencySymbols);
-
-      // 输入框变化时更新数据
-      loadingCapacityInput.addEventListener('input', updateProgress);
-      totalLoadingInput.addEventListener('input', updateProgress);
-      
-      // 新增输入框的事件监听
-      bankInput.addEventListener('input', updateAdditionalInfo);
-      accountInput.addEventListener('input', updateAdditionalInfo);
-      amountInput.addEventListener('input', updateAdditionalInfo);
-      
-      // 输入框聚焦时的动画效果
-      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, amountInput];
-      inputs.forEach(input => {
-        input.addEventListener('focus', () => {
-          input.parentElement.classList.add('scale-[1.02]');
-          input.parentElement.style.transition = 'transform 0.3s ease';
-        });
-        
-        input.addEventListener('blur', () => {
-          input.parentElement.classList.remove('scale-[1.02]');
-        });
-      });
-
-      // 按钮点击效果
-      continueButton.addEventListener('click', function() {
-        this.classList.add('scale-[0.98]');
-        setTimeout(() => {
-          this.classList.remove('scale-[0.98]');
-          
-          // 如果已完成，添加完成动画
-          if (this.textContent === 'Complete') {
-            progressFill.classList.add('bg-green-600');
-            displayPercentText.textContent = 'Completed! 100.00%';
-            
-            // 3秒后重置
-            setTimeout(() => {
-              progressFill.classList.remove('bg-green-600');
-              loadingCapacityInput.value = initialCapacity;
-              totalLoadingInput.value = initialTotal;
-              bankInput.value = '';
-              accountInput.value = '';
-              amountInput.value = '';
-              updateProgress();
-              updateAdditionalInfo();
-              updateCurrencySymbols(); // 确保重置后货币符号正确
-            }, 3000);
-          }
-        }, 150);
-      });
-
-      // 初始化一次
-      updateProgress();
-      updateAdditionalInfo();
-      updateCurrencySymbols(); // 初始化货币符号
-      
-      // 添加淡入动画
-      const card = document.querySelector('.max-w-6xl');
-      card.classList.add('opacity-0', 'transform', 'translate-y-8');
-      setTimeout(() => {
-        card.classList.remove('opacity-0', 'translate-y-8');
-        card.classList.add('transition-all', 'duration-700');
-      }, 100);
-    });
-  </script>
-</body>
-</html>    
