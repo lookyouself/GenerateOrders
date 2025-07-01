@@ -419,6 +419,7 @@
       const amountCurrency = document.getElementById('amountCurrency');
       const displayCapacityCurrency = document.getElementById('displayCapacityCurrency');
       const displayTotalCurrency = document.getElementById('displayTotalCurrency');
+      // 保留奈拉符号，不参与国家选择的货币符号更新
       const displayAmountCurrency = document.getElementById('displayAmountCurrency');
 
       // 存储初始值，用于动画演示
@@ -448,12 +449,11 @@
         const selectedCountry = countrySelect.value;
         const symbol = currencySymbols[selectedCountry] || '$';
         
-        // 更新货币符号
+        // 更新货币符号，但排除金额的货币符号
         capacityCurrency.textContent = symbol;
         totalCurrency.textContent = symbol;
         displayCapacityCurrency.textContent = symbol;
         displayTotalCurrency.textContent = symbol;
-        displayAmountCurrency.textContent = symbol; // 更新金额的货币符号
         
         // 更新显示值的格式
         updateProgress();
