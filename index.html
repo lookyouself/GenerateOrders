@@ -6,261 +6,365 @@
   <title>Payment Loading</title>
   <script src="https://cdn.tailwindcss.com/3.3.3"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <style>
-    body {
-      background-color: #f3f4f6;
-      font-family: 'Inter', sans-serif;
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#111827',
+            secondary: '#6B7280',
+            accent: '#3B82F6',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
     }
-
-    .progress-bar {
-      height: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      width: 33%;
-      transition: width 0.5s ease;
-    }
-
-    .dropdown {
-      position: relative;
-      width: 100%;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: nowrap;
-
-      
-      padding-bottom: 8px;
-    }
-
-    .dropdown-select {
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-      font-size: 16px;
-      appearance: none;
-      background-image: url("data:image.svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 15px center;
-      background-size: 20px;
-      cursor: pointer;
-      flex-grow: 1;
-    }
-
-    .dropdown-option {
-      display: flex;
-      align-items: center;
-      padding: 10px 15px;
-    }
-
-    .dropdown-option img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-      object-fit: contain;
-    }
-
-    .selected-icon {
-      display: none;
-      margin-top: 16px;
-      text-align: left;
-    }
-
-    .selected-icon.active {
-      display: block;
-    }
-
-    .icon-text {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .icon-text img {
-      width: 400px;
-      height: 80px;
-      margin-right: 16px;
-      object-fit: contain;
-    }
-
-    .icon-text span {
-      font-size: 48px;
-      color: #111827;
-      font-weight: bold;
-    }
-
-    input[type="number"] {
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #d1d5db;
-      font-size: 16px;
-      min-width: 160px;
-      flex: 1;
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .dropdown-arrow {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 20px;
+      }
+      .transition-width {
+        transition: width 0.5s ease;
+      }
+      .card-shadow {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      }
+      .payment-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .input-with-currency {
+        position: relative;
+      }
+      .currency-symbol {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen p-4">
+<body class="min-h-screen bg-gray-100 font-inter p-4 md:p-8">
 
-  <!-- 下拉框 + 输入框 -->
-  <div class="dropdown flex gap-4 items-center overflow-x-auto pb-2 mb-6 w-full max-w-2xl mx-auto mt-10">
-    <select class="dropdown-select min-w-[180px] flex-1" id="paymentSelect">
-      <option value="" disabled selected>Select payment method</option>
-      <option value="apple" class="dropdown-option">
-        <img src="/GenerateOrders/img/apple.png" alt="Apple" width="24" height="24" />
-        Apple
-      </option>
-      <option value="steam" class="dropdown-option">
-        <img src="/GenerateOrders/img/steam.png" alt="Steam" width="24" height="24" />
-        Steam
-      </option>
-      <option value="razer" class="dropdown-option">
-        <img src="/GenerateOrders/img/razaer.png" alt="Razer" width="24" height="24" />
-        Razer
-      </option>
-      <option value="xbox" class="dropdown-option">
-        <img src="/GenerateOrders/img/xbox.png" alt="Xbox" width="24" height="24" />
-        Xbox
-      </option>
-      <option value="btc" class="dropdown-option">
-        <img src="/GenerateOrders/img/btc.png" alt="BTC" width="24" height="24" />
-        BTC
-      </option>
-      <option value="applepay" class="dropdown-option">
-        <img src="/GenerateOrders/img/applepay.png" alt="Apple Pay" width="24" height="24" />
-        Apple Pay
-      </option>
-      <option value="chime" class="dropdown-option">
-        <img src="/GenerateOrders/img/chime.png" alt="Chime" width="24" height="24" />
-        Chime
-      </option>
-      <option value="cashapp" class="dropdown-option">
-        <img src="/GenerateOrders/img/cashapp.png" alt="Cashapp" width="24" height="24" />
-        Cash
-      </option>
-      <option value="paypal" class="dropdown-option">
-        <img src="/GenerateOrders/img/paypal.png" alt="PayPal" width="24" height="24" />
-        PayPal
-      </option>
-      <option value="zelle" class="dropdown-option">
-        <img src="/img/zelle.png" alt="Zelle" width="24" height="24" />
-        Zelle
-      </option>
-      <option value="venmo" class="dropdown-option">
-        <img src="/GenerateOrders/img/venmo.png" alt="Venmo" width="24" height="24" />
-        Venmo
-      </option>
-    </select>
-
-    <input type="number" id="loadingCapacity" class="px-4 py-3 border rounded-lg border-gray-300" placeholder="Loading capacity" />
-    <input type="number" id="totalLoading" class="px-4 py-3 border rounded-lg border-gray-300" placeholder="Total loading" />
-  </div>
-
-  <!-- 卡片主体 -->
-  <div class="bg-white rounded-xl shadow-lg w-full max-w-2xl min-h-[500px] mx-auto">
-    <div class="p-6 md:p-8">
-      <!-- 图标展示区域 -->
-      <div class="selected-icon active" id="appleIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/apple.png" alt="Apple" width="64" height="64" />
-          <span>Apple</span>
+  <div class="max-w-6xl mx-auto space-y-8">
+    <!-- 顶部面板：下拉框 + 输入框（一行显示） -->
+    <div class="bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl">
+      <h2 class="text-xl font-bold mb-6 text-primary">Payment Information</h2>
+      
+      <!-- 调整为2+1+2+2+1+2+2的网格布局 -->
+      <div class="grid grid-cols-12 gap-2 md:gap-4">
+        <div class="col-span-12 md:col-span-2">
+          <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
+            <option value="" disabled>Select payment method</option>
+            <option value="apple" selected>
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/apple.png" alt="Apple" class="mr-2" />
+                  Apple
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="steam">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/steam.png" alt="Steam" class="mr-2" />
+                  Steam
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="razer">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/razer.png" alt="Razer" class="mr-2" />
+                  Razer
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="xbox">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/xbox.png" alt="Xbox" class="mr-2" />
+                  Xbox
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="amazon">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/amazon.png" alt="Amazon" class="mr-2" />
+                  Amazon
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="btc">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/btc.png" alt="BTC" class="mr-2" />
+                  BTC
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="applepay">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/applepay.png" alt="Apple Pay" class="mr-2" />
+                  Apple Pay
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="chime">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/chime.png" alt="Chime" class="mr-2" />
+                  Chime
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="cashapp">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/cashapp.png" alt="Cashapp" class="mr-2" />
+                  Cash
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="paypal">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/paypal.png" alt="PayPal" class="mr-2" />
+                  PayPal
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="zelle">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/zelle.png" alt="Zelle" class="mr-2" />
+                  Zelle
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+            <option value="venmo">
+              <div class="payment-option">
+                <div class="flex items-center">
+                  <img src="/img/venmo.png" alt="Venmo" class="mr-2" />
+                  Venmo
+                </div>
+                <i class="fa fa-chevron-right text-gray-400"></i>
+              </div>
+            </option>
+          </select>
+        </div>
+        
+        <!-- 新增国家/地区下拉框 -->
+        <div class="col-span-12 md:col-span-1">
+          <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="countrySelect">
+            <option value="US" selected>US</option>
+            <option value="UK">UK</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+        
+        <div class="col-span-12 md:col-span-2">
+          <div class="input-with-currency">
+            <input type="number" id="loadingCapacity" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Loading capacity" value="500" />
+            <span class="currency-symbol text-primary font-medium" id="capacityCurrency">$</span>
+          </div>
+        </div>
+        
+        <div class="col-span-12 md:col-span-2">
+          <div class="input-with-currency">
+            <input type="number" id="totalLoading" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Total loading" value="1500" />
+            <span class="currency-symbol text-primary font-medium" id="totalCurrency">$</span>
+          </div>
+        </div>
+        
+        <!-- 调整顺序：先银行 -->
+        <div class="col-span-12 md:col-span-1">
+          <input type="text" id="bank" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Bank" />
+        </div>
+        
+        <!-- 调整顺序：再账户 -->
+        <div class="col-span-12 md:col-span-2">
+          <input type="text" id="account" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Account" />
+        </div>
+        
+        <!-- 调整顺序：最后金额 -->
+        <div class="col-span-12 md:col-span-2">
+          <div class="input-with-currency">
+            <input type="number" id="amount" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Amount" />
+            <span class="currency-symbol text-primary font-medium" id="amountCurrency">₦</span>
+          </div>
         </div>
       </div>
-
-      <div class="selected-icon" id="steamIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/steam.png" alt="Steam" width="64" height="64" />
-          <span>Steam</span>
+    </div>
+    
+    <!-- 底部面板：卡片主体 - 已缩小尺寸 -->
+    <div class="bg-white rounded-xl shadow-lg max-w-3xl mx-auto overflow-hidden transform transition-all hover:shadow-xl card-shadow">
+      <div class="p-4 md:p-6">
+        <!-- 图标展示区域 -->
+        <div class="selected-icon active mb-6" id="appleIcon">
+          <div class="flex items-center">
+            <img src="/img/apple.png" alt="Apple" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Apple</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="razerIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/razer.png" alt="Razer" width="64" height="64" />
-          <span>Razer</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="steamIcon">
+          <div class="flex items-center">
+            <img src="/img/steam.png" alt="Steam" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Steam</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="xboxIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/xbox.png" alt="Xbox" width="64" height="64" />
-          <span>Xbox</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="razerIcon">
+          <div class="flex items-center">
+            <img src="/img/razer.png" alt="Razer" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Razer</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="btcIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/btc.png" alt="BTC" width="64" height="64" />
-          <span>BTC</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="xboxIcon">
+          <div class="flex items-center">
+            <img src="/img/xbox.png" alt="Xbox" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Xbox</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="applepayIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/applepay.png" alt="Apple Pay" width="64" height="64" />
-          <span>Apple Pay</span>
+        <!-- Amazon图标调整到Xbox之后 -->
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="amazonIcon">
+          <div class="flex items-center">
+            <img src="/img/amazon.png" alt="Amazon" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Amazon</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="chimeIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/chime.png" alt="Chime" width="64" height="64" />
-          <span>Chime</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="btcIcon">
+          <div class="flex items-center">
+            <img src="/img/btc.png" alt="BTC" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">BTC</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="cashappIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/cashapp.png" alt="Cashapp" width="64" height="64" />
-          <span>Cash</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="applepayIcon">
+          <div class="flex items-center">
+            <img src="/img/applepay.png" alt="Apple Pay" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Apple Pay</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="paypalIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/paypal.png" alt="PayPal" width="64" height="64" />
-          <span>PayPal</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="chimeIcon">
+          <div class="flex items-center">
+            <img src="/img/chime.png" alt="Chime" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Chime</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="zelleIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/zelle.png" alt="Zelle" width="64" height="64" />
-          <span>Zelle</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="cashappIcon">
+          <div class="flex items-center">
+            <img src="/img/cashapp.png" alt="Cashapp" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Cash</span>
+          </div>
         </div>
-      </div>
 
-      <div class="selected-icon" id="venmoIcon">
-        <div class="icon-text">
-          <img src="/GenerateOrders/img/venmo.png" alt="Venmo" width="64" height="64" />
-          <span>Venmo</span>
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="paypalIcon">
+          <div class="flex items-center">
+            <img src="/img/paypal.png" alt="PayPal" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">PayPal</span>
+          </div>
         </div>
+
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="zelleIcon">
+          <div class="flex items-center">
+            <img src="/img/zelle.png" alt="Zelle" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Zelle</span>
+          </div>
+        </div>
+
+        <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="venmoIcon">
+          <div class="flex items-center">
+            <img src="/img/venmo.png" alt="Venmo" class="w-24 h-24 mr-9 object-contain" />
+            <span class="text-2xl font-bold text-primary">Venmo</span>
+          </div>
+        </div>
+
+        <!-- 加载信息 - 使用国家选择的货币符号 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Loading capacity</div>
+            <div class="text-xl font-bold text-primary">
+              <span id="displayCapacityCurrency">$</span><span id="displayCapacity">500</span>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Total loading</div>
+            <div class="text-xl font-bold text-primary">
+              <span id="displayTotalCurrency">$</span><span id="displayTotal">1500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 进度条 -->
+        <div class="h-3 bg-gray-200 rounded-full mb-5 overflow-hidden">
+          <div id="progressFill" class="h-full bg-primary transition-width" style="width: 33%;"></div>
+        </div>
+
+        <!-- 百分比文本 -->
+        <div id="loadingPercentText" class="text-center text-gray-600 text-lg mb-4">Loading.... 33.00%</div>
+        
+        <!-- 显示区域 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Bank</div>
+            <div class="text-base font-medium text-primary" id="displayBank">-</div>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Account</div>
+            <div class="text-base font-medium text-primary" id="displayAccount">-</div>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Amount</div>
+            <div class="text-base font-medium text-primary">
+              <span id="displayAmountCurrency">₦</span><span id="displayAmount">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 提交按钮 -->
+        <button id="continueButton" class="w-full bg-primary hover:bg-primary/90 text-white py-3 px-4 rounded-lg font-medium transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary/50">
+          Continue top-up
+        </button>
       </div>
-
-      <!-- 加载信息 -->
-      <div class="flex justify-between mb-6 mt-8">
-        <div class="text-gray-700 text-xl font-medium">Loading capacity: <span id="displayCapacity" class="text-black font-semibold">$500</span></div>
-        <div class="text-gray-700 text-xl font-medium">Total loading: <span id="displayTotal" class="text-black font-semibold">$1500</span></div>
-      </div>
-
-      <!-- 进度条 -->
-      <div class="progress-bar bg-gray-200 mb-6">
-        <div id="progressFill" class="progress-fill bg-black h-full" style="width: 33%;"></div>
-      </div>
-
-      <!-- 百分比文本 -->
-      <div id="loadingPercentText" class="text-center text-gray-600 text-xl mb-8">Loading.... 33.00%</div>
-
-      <!-- 提交按钮 -->
-      <button class="w-full bg-black text-white py-5 px-8 rounded-lg font-medium hover:bg-gray-800 transition-colors text-xl">
-        Continue top-up
-      </button>
     </div>
   </div>
 
   <!-- 页脚 -->
-  <footer class="mt-8 w-full text-center text-gray-500 text-sm">
+  <footer class="mt-8 max-w-6xl mx-auto text-center text-gray-500 text-sm">
     <p>created by <a href="https://space.coze.cn" class="text-blue-500 hover:underline">JADE Company</a></p>
     <p>The final interpretation right belongs to JADE</p>
   </footer>
@@ -269,11 +373,13 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const paymentSelect = document.getElementById('paymentSelect');
+      const countrySelect = document.getElementById('countrySelect');
       const icons = {
         apple: document.getElementById('appleIcon'),
         steam: document.getElementById('steamIcon'),
         razer: document.getElementById('razerIcon'),
         xbox: document.getElementById('xboxIcon'),
+        amazon: document.getElementById('amazonIcon'),
         btc: document.getElementById('btcIcon'),
         applepay: document.getElementById('applepayIcon'),
         chime: document.getElementById('chimeIcon'),
@@ -285,47 +391,205 @@
 
       const loadingCapacityInput = document.getElementById('loadingCapacity');
       const totalLoadingInput = document.getElementById('totalLoading');
+      const bankInput = document.getElementById('bank');
+      const accountInput = document.getElementById('account');
+      const amountInput = document.getElementById('amount');
 
       const displayCapacity = document.getElementById('displayCapacity');
       const displayTotal = document.getElementById('displayTotal');
+      const displayBank = document.getElementById('displayBank');
+      const displayAccount = document.getElementById('displayAccount');
+      const displayAmount = document.getElementById('displayAmount');
       const displayPercentText = document.getElementById('loadingPercentText');
       const progressFill = document.getElementById('progressFill');
+      const continueButton = document.getElementById('continueButton');
+      
+      // 货币符号映射
+      const currencySymbols = {
+        'US': '$',
+        'UK': '£',
+        'EUR': '€'
+      };
+      
+      // 货币符号元素
+      const capacityCurrency = document.getElementById('capacityCurrency');
+      const totalCurrency = document.getElementById('totalCurrency');
+      const amountCurrency = document.getElementById('amountCurrency');
+      const displayCapacityCurrency = document.getElementById('displayCapacityCurrency');
+      const displayTotalCurrency = document.getElementById('displayTotalCurrency');
+      const displayAmountCurrency = document.getElementById('displayAmountCurrency');
+
+      // 存储初始值，用于动画演示
+      const initialCapacity = 500;
+      const initialTotal = 1500;
+      
+      // 设置初始值
+      loadingCapacityInput.value = initialCapacity;
+      totalLoadingInput.value = initialTotal;
+
+      // 触发Apple图标显示
+      if (paymentSelect.value === 'apple') {
+        // 隐藏所有图标
+        Object.values(icons).forEach(icon => {
+          icon.classList.remove('active');
+          icon.classList.add('opacity-0', 'transform', 'translate-y-4', 'hidden');
+        });
+        
+        // 显示Apple图标
+        const appleIcon = icons['apple'];
+        appleIcon.classList.remove('hidden', 'opacity-0', 'transform', 'translate-y-4');
+        appleIcon.classList.add('active');
+      }
+
+      // 更新货币符号
+      function updateCurrencySymbols() {
+        const selectedCountry = countrySelect.value;
+        const symbol = currencySymbols[selectedCountry] || '$';
+        
+        capacityCurrency.textContent = symbol;
+        totalCurrency.textContent = symbol;
+        displayCapacityCurrency.textContent = symbol;
+        displayTotalCurrency.textContent = symbol;
+        
+        // 更新显示值的格式
+        updateProgress();
+      }
 
       function updateProgress() {
         let capacity = parseFloat(loadingCapacityInput.value) || 0;
         let total = parseFloat(totalLoadingInput.value) || 0;
 
         if (total === 0) {
-          displayCapacity.textContent = `$0`;
-          displayTotal.textContent = `$0`;
+          displayCapacity.textContent = `0`;
+          displayTotal.textContent = `0`;
           displayPercentText.textContent = `Loading.... 0.00%`;
           progressFill.style.width = '0%';
         } else {
-          let percent = (capacity / total) * 100;
-          displayCapacity.textContent = `$${capacity}`;
-          displayTotal.textContent = `$${total}`;
+          let percent = Math.min((capacity / total) * 100, 100); // 确保不超过100%
+          displayCapacity.textContent = `${capacity.toLocaleString()}`;
+          displayTotal.textContent = `${total.toLocaleString()}`;
           displayPercentText.textContent = `Loading.... ${percent.toFixed(2)}%`;
           progressFill.style.width = `${percent}%`;
+          
+          // 更新按钮状态
+          if (percent >= 100) {
+            continueButton.textContent = 'Complete';
+            continueButton.classList.add('bg-green-600');
+            continueButton.classList.remove('bg-primary', 'hover:bg-primary/90');
+          } else {
+            continueButton.textContent = 'Continue top-up';
+            continueButton.classList.remove('bg-green-600');
+            continueButton.classList.add('bg-primary', 'hover:bg-primary/90');
+          }
         }
+      }
+
+      // 更新新增的输入框显示
+      function updateAdditionalInfo() {
+        const bank = bankInput.value || '-';
+        const account = accountInput.value || '-';
+        let amount = amountInput.value || '-';
+        
+        if (amount !== '-') {
+          amount = `${parseFloat(amount).toLocaleString()}`;
+        }
+        
+        // 更新显示区域
+        displayBank.textContent = bank;
+        displayAccount.textContent = account;
+        displayAmount.textContent = amount;
       }
 
       // 下拉框切换图标
       paymentSelect.addEventListener('change', function () {
-        Object.values(icons).forEach(icon => icon.classList.remove('active'));
+        // 隐藏所有图标
+        Object.values(icons).forEach(icon => {
+          icon.classList.remove('active');
+          icon.classList.add('opacity-0', 'transform', 'translate-y-4');
+          setTimeout(() => {
+            icon.classList.add('hidden');
+          }, 300);
+        });
+        
+        // 显示选中的图标
         const selectedValue = this.value;
         const selectedIcon = icons[selectedValue];
         if (selectedIcon) {
-          selectedIcon.classList.add('active');
+          setTimeout(() => {
+            selectedIcon.classList.remove('hidden');
+            setTimeout(() => {
+              selectedIcon.classList.add('active');
+              selectedIcon.classList.remove('opacity-0', 'transform', 'translate-y-4');
+            }, 50);
+          }, 300);
         }
       });
+
+      // 国家/地区下拉框变化时更新货币符号
+      countrySelect.addEventListener('change', updateCurrencySymbols);
 
       // 输入框变化时更新数据
       loadingCapacityInput.addEventListener('input', updateProgress);
       totalLoadingInput.addEventListener('input', updateProgress);
+      
+      // 新增输入框的事件监听
+      bankInput.addEventListener('input', updateAdditionalInfo);
+      accountInput.addEventListener('input', updateAdditionalInfo);
+      amountInput.addEventListener('input', updateAdditionalInfo);
+      
+      // 输入框聚焦时的动画效果
+      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, amountInput];
+      inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+          input.parentElement.classList.add('scale-[1.02]');
+          input.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        
+        input.addEventListener('blur', () => {
+          input.parentElement.classList.remove('scale-[1.02]');
+        });
+      });
+
+      // 按钮点击效果
+      continueButton.addEventListener('click', function() {
+        this.classList.add('scale-[0.98]');
+        setTimeout(() => {
+          this.classList.remove('scale-[0.98]');
+          
+          // 如果已完成，添加完成动画
+          if (this.textContent === 'Complete') {
+            progressFill.classList.add('bg-green-600');
+            displayPercentText.textContent = 'Completed! 100.00%';
+            
+            // 3秒后重置
+            setTimeout(() => {
+              progressFill.classList.remove('bg-green-600');
+              loadingCapacityInput.value = initialCapacity;
+              totalLoadingInput.value = initialTotal;
+              bankInput.value = '';
+              accountInput.value = '';
+              amountInput.value = '';
+              updateProgress();
+              updateAdditionalInfo();
+              updateCurrencySymbols(); // 确保重置后货币符号正确
+            }, 3000);
+          }
+        }, 150);
+      });
 
       // 初始化一次
       updateProgress();
+      updateAdditionalInfo();
+      updateCurrencySymbols(); // 初始化货币符号
+      
+      // 添加淡入动画
+      const card = document.querySelector('.max-w-6xl');
+      card.classList.add('opacity-0', 'transform', 'translate-y-8');
+      setTimeout(() => {
+        card.classList.remove('opacity-0', 'translate-y-8');
+        card.classList.add('transition-all', 'duration-700');
+      }, 100);
     });
   </script>
 </body>
-</html>
+</html>    
