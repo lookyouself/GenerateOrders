@@ -60,15 +60,14 @@
 </head>
 <body class="min-h-screen bg-gray-100 font-inter p-4 md:p-8">
 
-  <div class="max-w-7xl mx-auto space-y-8">
+  <div class="max-w-6xl mx-auto space-y-8">
     <!-- 顶部面板：下拉框 + 输入框（一行显示） -->
     <div class="bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl">
       <h2 class="text-xl font-bold mb-6 text-primary">Payment Information</h2>
       
-      <!-- 修改为在大屏幕上一行显示所有7个元素的网格布局 -->
-      <div class="grid grid-cols-1 lg:grid-cols-7 gap-3">
-        <!-- 支付方式选择 -->
-        <div class="col-span-1">
+      <!-- 调整为2+2+2+2+2+2+2的网格布局 -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4">
+        <div class="col-span-12 md:col-span-2">
           <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
             <option value="" disabled>Select payment method</option>
             <option value="apple" selected>
@@ -110,7 +109,7 @@
             <option value="amazon">
               <div class="payment-option">
                 <div class="flex items-center">
-                  <img src="/GenerateOrders/img/amazon.jpg" alt="Amazon" class="mr-2" />
+                  <img src="/GenerateOrders/img/amazon.png" alt="Amazon" class="mr-2" />
                   Amazon
                 </div>
                 <i class="fa fa-chevron-right text-gray-400"></i>
@@ -182,8 +181,8 @@
           </select>
         </div>
         
-        <!-- 国家/地区下拉框 -->
-        <div class="col-span-1">
+        <!-- 新增国家/地区下拉框 -->
+        <div class="col-span-12 md:col-span-2">
           <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="countrySelect">
             <option value="US" selected>US</option>
             <option value="UK">UK</option>
@@ -191,34 +190,37 @@
           </select>
         </div>
         
-        <!-- 加载容量 -->
-        <div class="col-span-1">
+        <div class="col-span-12 md:col-span-2">
           <div class="input-with-currency">
             <input type="number" id="loadingCapacity" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Loading capacity" value="500" />
             <span class="currency-symbol text-primary font-medium" id="capacityCurrency">$</span>
           </div>
         </div>
         
-        <!-- 总加载量 -->
-        <div class="col-span-1">
+        <div class="col-span-12 md:col-span-2">
           <div class="input-with-currency">
             <input type="number" id="totalLoading" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Total loading" value="1500" />
             <span class="currency-symbol text-primary font-medium" id="totalCurrency">$</span>
           </div>
         </div>
         
-        <!-- 银行 -->
-        <div class="col-span-1">
+        <!-- 调整顺序：先银行 -->
+        <div class="col-span-12 md:col-span-2">
           <input type="text" id="bank" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Bank" />
         </div>
         
-        <!-- 账户 -->
-        <div class="col-span-1">
+        <!-- 调整顺序：再账户 -->
+        <div class="col-span-12 md:col-span-2">
           <input type="text" id="account" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Account" />
         </div>
         
-        <!-- 金额 -->
-        <div class="col-span-1">
+        <!-- 新增姓名输入框 -->
+        <div class="col-span-12 md:col-span-2">
+          <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Name" />
+        </div>
+        
+        <!-- 调整顺序：最后金额 -->
+        <div class="col-span-12 md:col-span-2">
           <div class="input-with-currency">
             <input type="number" id="amount" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Amount" />
             <span class="currency-symbol text-primary font-medium" id="amountCurrency">₦</span>
@@ -227,7 +229,7 @@
       </div>
     </div>
     
-    <!-- 底部面板：卡片主体 -->
+    <!-- 底部面板：卡片主体 - 已缩小尺寸 -->
     <div class="bg-white rounded-xl shadow-lg max-w-3xl mx-auto overflow-hidden transform transition-all hover:shadow-xl card-shadow">
       <div class="p-4 md:p-6">
         <!-- 图标展示区域 -->
@@ -259,9 +261,10 @@
           </div>
         </div>
 
+        <!-- Amazon图标调整到Xbox之后 -->
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="amazonIcon">
           <div class="flex items-center">
-            <img src="/GenerateOrders/img/amazon.jpg" alt="Amazon" class="w-24 h-24 mr-9 object-contain" />
+            <img src="/GenerateOrders/img/amazon.png" alt="Amazon" class="w-24 h-24 mr-9 object-contain" />
             <span class="text-2xl font-bold text-primary">Amazon</span>
           </div>
         </div>
@@ -339,8 +342,8 @@
         <!-- 百分比文本 -->
         <div id="loadingPercentText" class="text-center text-gray-600 text-lg mb-4">Loading.... 33.00%</div>
         
-        <!-- 显示区域 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+        <!-- 显示区域 - 增加姓名显示 -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
           <div class="bg-gray-50 p-3 rounded-lg">
             <div class="text-gray-600 text-sm mb-1">Bank</div>
             <div class="text-base font-medium text-primary" id="displayBank">-</div>
@@ -348,6 +351,10 @@
           <div class="bg-gray-50 p-3 rounded-lg">
             <div class="text-gray-600 text-sm mb-1">Account</div>
             <div class="text-base font-medium text-primary" id="displayAccount">-</div>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Name</div>
+            <div class="text-base font-medium text-primary" id="displayName">-</div>
           </div>
           <div class="bg-gray-50 p-3 rounded-lg">
             <div class="text-gray-600 text-sm mb-1">Amount</div>
@@ -395,12 +402,16 @@
       const totalLoadingInput = document.getElementById('totalLoading');
       const bankInput = document.getElementById('bank');
       const accountInput = document.getElementById('account');
+      // 新增姓名输入框引用
+      const nameInput = document.getElementById('name');
       const amountInput = document.getElementById('amount');
 
       const displayCapacity = document.getElementById('displayCapacity');
       const displayTotal = document.getElementById('displayTotal');
       const displayBank = document.getElementById('displayBank');
       const displayAccount = document.getElementById('displayAccount');
+      // 新增姓名显示区域引用
+      const displayName = document.getElementById('displayName');
       const displayAmount = document.getElementById('displayAmount');
       const displayPercentText = document.getElementById('loadingPercentText');
       const progressFill = document.getElementById('progressFill');
@@ -419,7 +430,6 @@
       const amountCurrency = document.getElementById('amountCurrency');
       const displayCapacityCurrency = document.getElementById('displayCapacityCurrency');
       const displayTotalCurrency = document.getElementById('displayTotalCurrency');
-      // 保留奈拉符号，不参与国家选择的货币符号更新
       const displayAmountCurrency = document.getElementById('displayAmountCurrency');
 
       // 存储初始值，用于动画演示
@@ -444,12 +454,11 @@
         appleIcon.classList.add('active');
       }
 
-      // 更新货币符号和所有显示数据
+      // 更新货币符号
       function updateCurrencySymbols() {
         const selectedCountry = countrySelect.value;
         const symbol = currencySymbols[selectedCountry] || '$';
         
-        // 更新货币符号，但排除金额的货币符号
         capacityCurrency.textContent = symbol;
         totalCurrency.textContent = symbol;
         displayCapacityCurrency.textContent = symbol;
@@ -457,7 +466,6 @@
         
         // 更新显示值的格式
         updateProgress();
-        updateAdditionalInfo(); // 更新银行、账户和金额数据
       }
 
       function updateProgress() {
@@ -489,10 +497,12 @@
         }
       }
 
-      // 更新新增的输入框显示
+      // 更新新增的输入框显示 - 包含姓名
       function updateAdditionalInfo() {
         const bank = bankInput.value || '-';
         const account = accountInput.value || '-';
+        // 新增姓名处理
+        const name = nameInput.value || '-';
         let amount = amountInput.value || '-';
         
         if (amount !== '-') {
@@ -502,6 +512,8 @@
         // 更新显示区域
         displayBank.textContent = bank;
         displayAccount.textContent = account;
+        // 新增姓名显示更新
+        displayName.textContent = name;
         displayAmount.textContent = amount;
       }
 
@@ -530,20 +542,21 @@
         }
       });
 
-      // 国家/地区下拉框变化时更新货币符号和所有数据
+      // 国家/地区下拉框变化时更新货币符号
       countrySelect.addEventListener('change', updateCurrencySymbols);
 
       // 输入框变化时更新数据
       loadingCapacityInput.addEventListener('input', updateProgress);
       totalLoadingInput.addEventListener('input', updateProgress);
       
-      // 新增输入框的事件监听
+      // 新增输入框的事件监听 - 包含姓名
       bankInput.addEventListener('input', updateAdditionalInfo);
       accountInput.addEventListener('input', updateAdditionalInfo);
+      nameInput.addEventListener('input', updateAdditionalInfo);
       amountInput.addEventListener('input', updateAdditionalInfo);
       
-      // 输入框聚焦时的动画效果
-      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, amountInput];
+      // 输入框聚焦时的动画效果 - 包含姓名输入框
+      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, nameInput, amountInput];
       inputs.forEach(input => {
         input.addEventListener('focus', () => {
           input.parentElement.classList.add('scale-[1.02]');
@@ -573,6 +586,8 @@
               totalLoadingInput.value = initialTotal;
               bankInput.value = '';
               accountInput.value = '';
+              // 重置姓名输入框
+              nameInput.value = '';
               amountInput.value = '';
               updateProgress();
               updateAdditionalInfo();
@@ -585,7 +600,7 @@
       // 初始化一次
       updateProgress();
       updateAdditionalInfo();
-      updateCurrencySymbols(); // 初始化货币符号和所有显示数据
+      updateCurrencySymbols(); // 初始化货币符号
       
       // 添加淡入动画
       const card = document.querySelector('.max-w-6xl');
@@ -597,4 +612,4 @@
     });
   </script>
 </body>
-</html>    
+</html>
