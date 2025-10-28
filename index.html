@@ -61,14 +61,14 @@
 <body class="min-h-screen bg-gray-100 font-inter p-4 md:p-8">
 
   <div class="max-w-6xl mx-auto space-y-8">
-    <!-- 顶部面板：下拉框 + 输入框（一行显示） -->
-    <div class="bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl">
-      <h2 class="text-xl font-bold mb-6 text-primary">Payment Information</h2>
+    <!-- 顶部面板：下拉框 + 输入框（精简版） -->
+    <div class="bg-white rounded-xl shadow-lg p-4 transition-all hover:shadow-xl">
+      <h2 class="text-lg font-semibold mb-4 text-primary">Payment Info</h2>
       
-      <!-- 调整为2+2+2+2+2+2+2的网格布局 -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4">
+      <!-- 2行5列布局 -->
+      <div class="grid grid-cols-1 md:grid-cols-10 gap-1 md:gap-3">
         <div class="col-span-12 md:col-span-2">
-          <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
+          <select class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
             <option value="" disabled>Select payment method</option>
             <option value="apple" selected>
               <div class="payment-option">
@@ -181,49 +181,59 @@
           </select>
         </div>
         
-        <!-- 新增国家/地区下拉框 -->
+        <!-- 国家/地区 -->
         <div class="col-span-12 md:col-span-2">
-          <select class="w-full px-4 py-3 border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="countrySelect">
+          <select class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="countrySelect">
             <option value="US" selected>US</option>
             <option value="UK">UK</option>
             <option value="EUR">EUR</option>
           </select>
         </div>
         
+        <!-- 创建时间 -->
+        <div class="col-span-12 md:col-span-2">
+          <input type="datetime-local" id="createTime" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Create" />
+        </div>
+        
+        <!-- 结束时间 -->
+        <div class="col-span-12 md:col-span-2">
+          <input type="datetime-local" id="endTime" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="End" />
+        </div>
+        
         <div class="col-span-12 md:col-span-2">
           <div class="input-with-currency">
-            <input type="number" id="loadingCapacity" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Loading capacity" value="500" />
-            <span class="currency-symbol text-primary font-medium" id="capacityCurrency">$</span>
+            <input type="number" id="loadingCapacity" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-8" placeholder="Capacity" value="500" />
+            <span class="currency-symbol text-primary text-sm font-medium" id="capacityCurrency">$</span>
           </div>
         </div>
         
         <div class="col-span-12 md:col-span-2">
           <div class="input-with-currency">
-            <input type="number" id="totalLoading" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Total loading" value="1500" />
-            <span class="currency-symbol text-primary font-medium" id="totalCurrency">$</span>
+            <input type="number" id="totalLoading" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-8" placeholder="Total" value="1500" />
+            <span class="currency-symbol text-primary text-sm font-medium" id="totalCurrency">$</span>
           </div>
         </div>
         
-        <!-- 调整顺序：先银行 -->
+        <!-- 银行 -->
         <div class="col-span-12 md:col-span-2">
-          <input type="text" id="bank" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Bank" />
+          <input type="text" id="bank" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Bank" />
         </div>
         
-        <!-- 调整顺序：再账户 -->
+        <!-- 账户 -->
         <div class="col-span-12 md:col-span-2">
-          <input type="text" id="account" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Account" />
+          <input type="text" id="account" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Account" />
         </div>
         
-        <!-- 新增姓名输入框 -->
+        <!-- 姓名 -->
         <div class="col-span-12 md:col-span-2">
-          <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Name" />
+          <input type="text" id="name" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Name" />
         </div>
         
-        <!-- 调整顺序：最后金额 -->
+        <!-- 金额 -->
         <div class="col-span-12 md:col-span-2">
           <div class="input-with-currency">
-            <input type="number" id="amount" class="w-full px-4 py-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-10" placeholder="Amount" />
-            <span class="currency-symbol text-primary font-medium" id="amountCurrency">₦</span>
+            <input type="number" id="amount" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all pr-8" placeholder="Amount" />
+            <span class="currency-symbol text-primary text-sm font-medium" id="amountCurrency">₦</span>
           </div>
         </div>
       </div>
@@ -232,6 +242,13 @@
     <!-- 底部面板：卡片主体 - 已缩小尺寸 -->
     <div class="bg-white rounded-xl shadow-lg max-w-3xl mx-auto overflow-hidden transform transition-all hover:shadow-xl card-shadow">
       <div class="p-4 md:p-6">
+        <!-- 订单提示文本 -->
+        <div class="border-2 border-red-600 bg-red-50 text-red-600 font-bold p-3 mb-3 rounded flex items-center">
+          <span class="flex items-center">
+            <span>Reminder：<span class="mx-2">⚠️</span>Order cannot be canceled once confirmed!</span>
+          </span>
+        </div>
+        
         <!-- 图标展示区域 -->
         <div class="selected-icon active mb-6" id="appleIcon">
           <div class="flex items-center">
@@ -333,14 +350,13 @@
             </div>
           </div>
         </div>
-
+        
         <!-- 进度条 -->
-        <div class="h-3 bg-gray-200 rounded-full mb-5 overflow-hidden">
-          <div id="progressFill" class="h-full bg-primary transition-width" style="width: 33%;"></div>
+        <div class="h-12 bg-gray-200 rounded-full mb-5 overflow-hidden relative">
+          <div id="progressFill" class="h-full bg-primary transition-width flex items-center pl-6" style="width: 33%;">
+            <div id="loadingPercentText" class="text-white font-medium text-lg">Loading.... 33.00%</div>
+          </div>
         </div>
-
-        <!-- 百分比文本 -->
-        <div id="loadingPercentText" class="text-center text-gray-600 text-lg mb-4">Loading.... 33.00%</div>
         
         <!-- 显示区域 - 增加姓名显示 -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
@@ -361,6 +377,18 @@
             <div class="text-base font-medium text-primary">
               <span id="displayAmountCurrency">₦</span><span id="displayAmount">-</span>
             </div>
+          </div>
+        </div>
+
+        <!-- 时间显示区域 - 移到详细信息展示区下方 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">Creation Time</div>
+            <div class="text-xl font-bold text-primary" id="displayCreateTime">-</div>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <div class="text-gray-600 text-sm mb-1">End Time</div>
+            <div class="text-xl font-bold text-primary" id="displayEndTime">-</div>
           </div>
         </div>
 
@@ -405,6 +433,9 @@
       // 新增姓名输入框引用
       const nameInput = document.getElementById('name');
       const amountInput = document.getElementById('amount');
+      // 新增时间输入框引用
+      const createTimeInput = document.getElementById('createTime');
+      const endTimeInput = document.getElementById('endTime');
 
       const displayCapacity = document.getElementById('displayCapacity');
       const displayTotal = document.getElementById('displayTotal');
@@ -414,6 +445,9 @@
       const displayName = document.getElementById('displayName');
       const displayAmount = document.getElementById('displayAmount');
       const displayPercentText = document.getElementById('loadingPercentText');
+      // 新增时间显示区域引用
+      const displayCreateTime = document.getElementById('displayCreateTime');
+      const displayEndTime = document.getElementById('displayEndTime');
       const progressFill = document.getElementById('progressFill');
       const continueButton = document.getElementById('continueButton');
       
@@ -489,21 +523,31 @@
             continueButton.textContent = 'Complete';
             continueButton.classList.add('bg-green-600');
             continueButton.classList.remove('bg-primary', 'hover:bg-primary/90');
+            // 当进度达到100%时，将文字颜色改为深色
+            displayPercentText.classList.remove('text-white');
+            displayPercentText.classList.add('text-gray-800');
           } else {
             continueButton.textContent = 'Continue top-up';
             continueButton.classList.remove('bg-green-600');
             continueButton.classList.add('bg-primary', 'hover:bg-primary/90');
+            // 当进度未达到100%时，文字颜色为白色
+            displayPercentText.classList.remove('text-gray-800');
+            displayPercentText.classList.add('text-white');
           }
         }
       }
 
-      // 更新新增的输入框显示 - 包含姓名
+      // 更新新增的输入框显示 - 包含姓名和时间
       function updateAdditionalInfo() {
         const bank = bankInput.value || '-';
         const account = accountInput.value || '-';
         // 新增姓名处理
         const name = nameInput.value || '-';
         let amount = amountInput.value || '-';
+        
+        // 新增时间处理
+        const createTime = createTimeInput.value || '-';
+        const endTime = endTimeInput.value || '-';
         
         if (amount !== '-') {
           amount = `${parseFloat(amount).toLocaleString()}`;
@@ -515,6 +559,24 @@
         // 新增姓名显示更新
         displayName.textContent = name;
         displayAmount.textContent = amount;
+        
+        // 新增时间显示更新
+        displayCreateTime.textContent = formatDateTime(createTime);
+        displayEndTime.textContent = formatDateTime(endTime);
+      }
+      
+      // 格式化日期时间显示
+      function formatDateTime(dateTimeString) {
+        if (!dateTimeString || dateTimeString === '-') return '-';
+        
+        const date = new Date(dateTimeString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
       }
 
       // 下拉框切换图标
@@ -549,14 +611,16 @@
       loadingCapacityInput.addEventListener('input', updateProgress);
       totalLoadingInput.addEventListener('input', updateProgress);
       
-      // 新增输入框的事件监听 - 包含姓名
+      // 新增输入框的事件监听 - 包含姓名和时间
       bankInput.addEventListener('input', updateAdditionalInfo);
       accountInput.addEventListener('input', updateAdditionalInfo);
       nameInput.addEventListener('input', updateAdditionalInfo);
       amountInput.addEventListener('input', updateAdditionalInfo);
+      createTimeInput.addEventListener('input', updateAdditionalInfo);
+      endTimeInput.addEventListener('input', updateAdditionalInfo);
       
-      // 输入框聚焦时的动画效果 - 包含姓名输入框
-      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, nameInput, amountInput];
+      // 输入框聚焦时的动画效果 - 包含姓名和时间输入框
+      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, nameInput, amountInput, createTimeInput, endTimeInput];
       inputs.forEach(input => {
         input.addEventListener('focus', () => {
           input.parentElement.classList.add('scale-[1.02]');
@@ -578,6 +642,9 @@
           if (this.textContent === 'Complete') {
             progressFill.classList.add('bg-green-600');
             displayPercentText.textContent = 'Completed! 100.00%';
+            // 完成时文字颜色改为深色
+            displayPercentText.classList.remove('text-white');
+            displayPercentText.classList.add('text-gray-800');
             
             // 3秒后重置
             setTimeout(() => {
@@ -589,6 +656,9 @@
               // 重置姓名输入框
               nameInput.value = '';
               amountInput.value = '';
+              // 重置时间输入框
+              createTimeInput.value = '';
+              endTimeInput.value = '';
               updateProgress();
               updateAdditionalInfo();
               updateCurrencySymbols(); // 确保重置后货币符号正确
@@ -597,7 +667,22 @@
         }, 150);
       });
 
+      // 设置默认时间
+      function setDefaultTimes() {
+        const now = new Date();
+        const oneHourLater = new Date(now.getTime() + 60 * 60 * 1000);
+        
+        // 格式化日期时间为 input[type="datetime-local"] 所需格式
+        const formatDateTimeForInput = (date) => {
+          return date.toISOString().slice(0, 16);
+        };
+        
+        createTimeInput.value = formatDateTimeForInput(now);
+        endTimeInput.value = formatDateTimeForInput(oneHourLater);
+      }
+      
       // 初始化一次
+      setDefaultTimes();
       updateProgress();
       updateAdditionalInfo();
       updateCurrencySymbols(); // 初始化货币符号
