@@ -55,6 +55,17 @@
         transform: translateY(-50%);
         pointer-events: none;
       }
+      .notes-display {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+      }
+      .notes-display:hover {
+        border-color: #3B82F6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+      }
     }
   </style>
 </head>
@@ -65,8 +76,8 @@
     <div class="bg-white rounded-xl shadow-lg p-4 transition-all hover:shadow-xl">
       <h2 class="text-lg font-semibold mb-4 text-primary">Payment Info</h2>
       
-      <!-- 2行5列布局 -->
-      <div class="grid grid-cols-1 md:grid-cols-10 gap-1 md:gap-3">
+      <!-- 2行6列布局 -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-3">
         <div class="col-span-12 md:col-span-2">
           <select class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 dropdown-arrow appearance-none focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" id="paymentSelect">
             <option value="" disabled>Select payment method</option>
@@ -109,7 +120,7 @@
             <option value="amazon">
               <div class="payment-option">
                 <div class="flex items-center">
-                  <img src="/GenerateOrders/img/amazon.jpg" alt="Amazon" class="mr-2" />
+                  <img src="/GenerateOrders/img/amazon.png" alt="Amazon" class="mr-2" />
                   Amazon
                 </div>
                 <i class="fa fa-chevron-right text-gray-400"></i>
@@ -236,6 +247,11 @@
             <span class="currency-symbol text-primary text-sm font-medium" id="amountCurrency">₦</span>
           </div>
         </div>
+        
+        <!-- 备注 -->
+        <div class="col-span-12 md:col-span-4">
+          <input type="text" id="notes" class="w-full px-3 py-2 text-sm border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder="Notes" />
+        </div>
       </div>
     </div>
     
@@ -251,87 +267,159 @@
         
         <!-- 图标展示区域 -->
         <div class="selected-icon active mb-6" id="appleIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/apple.png" alt="Apple" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Apple</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/apple.png" alt="Apple" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Apple</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="notesDisplay">
+              <div id="notesContent" class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="steamIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/steam.png" alt="Steam" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Steam</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/steam.png" alt="Steam" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Steam</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="steamNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="razerIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/razer.png" alt="Razer" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Razer</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/razer.png" alt="Razer" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Razer</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="razerNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="xboxIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/xbox.png" alt="Xbox" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Xbox</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/xbox.png" alt="Xbox" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Xbox</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="xboxNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <!-- Amazon图标调整到Xbox之后 -->
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="amazonIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/amazon.jpg" alt="Amazon" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Amazon</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/amazon.png" alt="Amazon" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Amazon</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="amazonNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="btcIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/btc.png" alt="BTC" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">BTC</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/btc.png" alt="BTC" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">BTC</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="btcNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="applepayIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/applepay.png" alt="Apple Pay" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Apple Pay</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/applepay.png" alt="Apple Pay" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Apple Pay</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="applepayNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="chimeIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/chime.png" alt="Chime" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Chime</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/chime.png" alt="Chime" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Chime</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="chimeNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="cashappIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/cashapp.png" alt="Cashapp" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Cash</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/cashapp.png" alt="Cashapp" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Cash</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="cashappNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="paypalIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/paypal.png" alt="PayPal" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">PayPal</span>
+          <div class="flex flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/paypal.png" alt="PayPal" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">PayPal</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="paypalNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="zelleIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/zelle.png" alt="Zelle" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Zelle</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/zelle.png" alt="Zelle" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Zelle</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="zelleNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
         <div class="selected-icon mb-6 opacity-0 transform translate-y-4 hidden" id="venmoIcon">
-          <div class="flex items-center">
-            <img src="/GenerateOrders/img/venmo.png" alt="Venmo" class="w-24 h-24 mr-9 object-contain" />
-            <span class="text-2xl font-bold text-primary">Venmo</span>
+          <div class="flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center mb-3 sm:mb-0">
+              <img src="/GenerateOrders/img/venmo.png" alt="Venmo" class="w-16 h-16 mr-4 object-contain" />
+              <span class="text-xl font-bold text-primary">Venmo</span>
+            </div>
+            <!-- 备注显示方框 -->
+            <div class="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-1/2 min-h-[60px] bg-gray-50 notes-display" id="venmoNotesDisplay">
+              <div class="text-gray-800"></div>
+            </div>
           </div>
         </div>
 
@@ -436,6 +524,8 @@
       // 新增时间输入框引用
       const createTimeInput = document.getElementById('createTime');
       const endTimeInput = document.getElementById('endTime');
+      // 新增备注输入框引用
+      const notesInput = document.getElementById('notes');
 
       const displayCapacity = document.getElementById('displayCapacity');
       const displayTotal = document.getElementById('displayTotal');
@@ -565,6 +655,35 @@
         displayEndTime.textContent = formatDateTime(endTime);
       }
       
+      // 更新备注显示
+      function updateNotesDisplay() {
+        const notes = notesInput.value || '';
+        const selectedValue = paymentSelect.value;
+        
+        // 处理Apple支付方式的特殊情况
+        if (selectedValue === 'apple') {
+          const notesContent = document.getElementById('notesContent');
+          if (notesContent) {
+            notesContent.textContent = notes;
+          }
+          return; // 提前返回，避免执行下面的代码
+        }
+        
+        // 处理其他支付方式
+        const notesDisplayId = selectedValue + 'NotesDisplay';
+        const notesDisplay = document.getElementById(notesDisplayId);
+        
+        if (notesDisplay) {
+          // 对于其他支付方式，直接使用显示框
+          const notesContent = notesDisplay.querySelector('.text-gray-800');
+          if (notesContent) {
+            notesContent.textContent = notes;
+          } else {
+            notesDisplay.textContent = notes;
+          }
+        }
+      }
+      
       // 格式化日期时间显示
       function formatDateTime(dateTimeString) {
         if (!dateTimeString || dateTimeString === '-') return '-';
@@ -599,6 +718,8 @@
             setTimeout(() => {
               selectedIcon.classList.add('active');
               selectedIcon.classList.remove('opacity-0', 'transform', 'translate-y-4');
+              // 更新备注显示
+              updateNotesDisplay();
             }, 50);
           }, 300);
         }
@@ -611,16 +732,17 @@
       loadingCapacityInput.addEventListener('input', updateProgress);
       totalLoadingInput.addEventListener('input', updateProgress);
       
-      // 新增输入框的事件监听 - 包含姓名和时间
+      // 新增输入框的事件监听 - 包含姓名、时间和备注
       bankInput.addEventListener('input', updateAdditionalInfo);
       accountInput.addEventListener('input', updateAdditionalInfo);
       nameInput.addEventListener('input', updateAdditionalInfo);
       amountInput.addEventListener('input', updateAdditionalInfo);
       createTimeInput.addEventListener('input', updateAdditionalInfo);
       endTimeInput.addEventListener('input', updateAdditionalInfo);
+      notesInput.addEventListener('input', updateNotesDisplay);
       
-      // 输入框聚焦时的动画效果 - 包含姓名和时间输入框
-      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, nameInput, amountInput, createTimeInput, endTimeInput];
+      // 输入框聚焦时的动画效果 - 包含姓名、时间和备注输入框
+      const inputs = [loadingCapacityInput, totalLoadingInput, bankInput, accountInput, nameInput, amountInput, createTimeInput, endTimeInput, notesInput];
       inputs.forEach(input => {
         input.addEventListener('focus', () => {
           input.parentElement.classList.add('scale-[1.02]');
@@ -681,11 +803,19 @@
         endTimeInput.value = formatDateTimeForInput(oneHourLater);
       }
       
+      // 初始化备注显示方框点击事件
+      document.querySelectorAll('[id$="NotesDisplay"]').forEach(notesDisplay => {
+        notesDisplay.addEventListener('click', function() {
+          notesInput.focus();
+        });
+      });
+      
       // 初始化一次
       setDefaultTimes();
       updateProgress();
       updateAdditionalInfo();
       updateCurrencySymbols(); // 初始化货币符号
+      updateNotesDisplay(); // 初始化备注显示
       
       // 添加淡入动画
       const card = document.querySelector('.max-w-6xl');
@@ -698,4 +828,3 @@
   </script>
 </body>
 </html>
-
