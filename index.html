@@ -74,7 +74,16 @@
   <div class="max-w-6xl mx-auto space-y-8">
     <!-- 顶部面板：下拉框 + 输入框（精简版） -->
     <div class="bg-white rounded-xl shadow-lg p-4 transition-all hover:shadow-xl">
-      <h2 class="text-lg font-semibold mb-4 text-primary">Payment Info</h2>
+      <div class="relative h-10 mb-6">
+        <!-- h2 靠左显示，垂直居中 -->
+        <h2 class="text-xl font-bold text-primary absolute left-0 top-1/2 -translate-y-1/2">Payment Information</h2>
+
+        <!-- a标签 整行居中显示，垂直居中 -->
+        <a href="./apple.html"
+          class="border-2 border-accent bg-accent/5 hover:bg-accent/10 text-accent font-medium transition-all rounded-lg px-4 py-2 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          title="暂未设置链接" style="min-width: 100px;" data-doubao-line="72" data-doubao-column="11"
+          data-doubao-key="5">苹果p图</a>
+      </div>
       
       <!-- 2行6列布局 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-3">
@@ -828,5 +837,6 @@
   </script>
 </body>
 </html>
+
 
 
