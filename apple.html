@@ -1,15 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta property="og:title" content="Your Apple eGift Card">
-    <meta property="og:description"
-        content="Your Use the Apple Gift Card to get products, accessories, apps, games, music, movies, TV shows, and more. Spend it on in-app content, books, subscriptions and even iCloud storage to secure files from all your Apple devices. This gift card does it all. And then some. eGift Card">
-    <meta property="og:image"
-        content="https://content.blackhawknetwork.com/gcmimages/manufacturer/masterimage/6HXP3PGFQDSDPWJVVS0L1T9G8M-en_US.jpeg?dt=1596486061263">
+    <meta property="og:description" content="Your Use the Apple Gift Card to get products, accessories, apps, games, music, movies, TV shows, and more. Spend it on in-app content, books, subscriptions and even iCloud storage to secure files from all your Apple devices. This gift card does it all. And then some. eGift Card">
+    <meta property="og:image" content="https://content.blackhawknetwork.com/gcmimages/manufacturer/masterimage/6HXP3PGFQDSDPWJVVS0L1T9G8M-en_US.jpeg?dt=1596486061263">
     <meta property="og:website" content="egift.activationspot.com">
 
-    <!-- 移除重复的监控脚本，仅保留必要核心 -->
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-K2773WN9&amp;l=adobeDataLayer"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
@@ -18,24 +15,24 @@
     <meta name="author" content="Blackhawk Network">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <link rel="shortcut icon" type="image/x-icon"
-        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/favicon.ico">
 
-    <!-- 样式文件合并去重 -->
-    <link rel="stylesheet" type="text/css"
-        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/style.css?v=20240417">
-    <link rel="stylesheet" type="text/css"
-        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/layout.css?v=20230608">
-    <link rel="stylesheet" type="text/css"
-        href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/print.css?v=20230608"
-        media="print">
+    <!-- 原有样式 -->
+    <link rel="stylesheet" type="text/css" href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/style.css?v=20240417">
+    <link rel="stylesheet" type="text/css" href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/layout.css?v=20230608">
+    <link rel="stylesheet" type="text/css" href="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/css/print.css?v=20230608" media="print">
     <link type="text/css" rel="stylesheet" href="css/wallet.css?v=20150310">
     <link type="text/css" rel="stylesheet" href="css/aselements.css">
+    
+    <!-- 状态栏依赖（CDN优化） -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/flatpickr/4.6.13/themes/airbnb.min.css">
 
-    <!-- 仅保留一次jQuery（升级至3.7.1兼容现代浏览器） -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Google Tag Manager 标准化 -->
+    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -52,71 +49,85 @@
         })(window, document, 'script', 'adobeDataLayer', 'GTM-K2773WN9');
     </script>
 
-    <!-- ① 控制面板（左侧固定+列式布局+防堆叠） -->
+    <!-- 优化后的样式 -->
     <style>
-        /* 核心布局样式：左侧固定+列式排序+防堆叠 */
+        /* 控制面板优化：更紧凑的布局 */
         #controlPanel {
             position: fixed;
             top: 10px;
             left: 10px;
-            /* 左侧固定定位 */
             background: #fff;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
             z-index: 9999;
             font-size: 14px;
             display: flex;
             flex-direction: column;
-            /* 列式排序 */
-            gap: 12px;
-            /* 间距防堆叠 */
+            gap: 10px;
             width: 280px;
-            /* 固定宽度避免变形 */
             box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         .control-group {
             display: flex;
             flex-direction: column;
             gap: 4px;
+            border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 8px;
+        }
+        
+        .control-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .control-group label {
-            font-weight: bold;
-            font-size: 13px;
-            color: #333;
+            font-weight: 600;
+            font-size: 12px;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .control-group input,
         .control-group select {
-            padding: 6px 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 8px 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
             font-size: 14px;
             box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+        
+        .control-group input:focus,
+        .control-group select:focus {
+            outline: none;
+            border-color: #0071e3;
+            box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
         }
 
         #pinTip {
-            color: #d00;
+            color: #ff3b30;
             font-size: 11px;
             margin-top: 2px;
             display: none;
+            line-height: 1.4;
         }
 
         .tips-text {
-            color: #d00;
-            font-size: 16px;
-            /* 调大字体（可根据需求改14/16/18px） */
+            color: #ff3b30;
+            font-size: 14px;
             line-height: 1.5;
-            /* 适配行高，避免文字重叠 */
-            font-weight: bold;
-            /* 可选：加粗，更醒目 */
-            margin: 0;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            text-align: center;
         }
 
-        /* 响应式适配：移动端自动调整 */
+        /* 响应式优化 */
         @media (max-width: 768px) {
             #controlPanel {
                 top: 5px;
@@ -126,43 +137,159 @@
                 gap: 8px;
             }
 
-            .control-group label {
-                font-size: 12px;
-            }
-
-            .control-group input,
-            .control-group select {
-                padding: 4px 6px;
-                font-size: 12px;
+            .boilerplate {
+                max-width: 100%;
+                padding-left: 250px !important;
             }
         }
 
-        /* 主内容区域：居中显示 + 左侧边距防遮挡 */
+        /* 主内容区域适配 */
         .boilerplate {
             max-width: 1200px;
             margin: 0 auto !important;
-            /* 整体居中 */
             padding-left: 300px !important;
-            /* 左侧留出控制面板空间 */
             box-sizing: border-box;
+            padding-top: 20px;
         }
 
         #main {
             width: 100%;
         }
 
-        /* 移动端主内容适配 */
-        @media (max-width: 768px) {
-            .boilerplate {
-                padding-left: 260px !important;
-                max-width: 100%;
-            }
+        /* ========== iOS 17+ 状态栏极致还原 ========== */
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px !important; /* 精准匹配iOS内边距 */
+            background-color: #ffffff;
+            font-size: 15px; /* iOS 17 状态栏字号 */
+            letter-spacing: 0.3px; /* 精准匹配iOS字间距 */
+            color: #000000;
+            /* 纯iOS系统字体栈 */
+            font-family: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+            font-weight: 400; /* iOS原生权重，非加粗更真实 */
+            border-radius: 0;
+            margin-bottom: 16px;
+            border: none;
+            /* 平滑过渡动画 */
+            transition: all 0.2s ease-in-out;
+        }
+        
+        /* iOS原生时间样式 */
+        #status-time-display {
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        
+        /* iOS原生图标/文字样式 */
+        .status-right span, .status-right i {
+            margin-left: 4px;
+            vertical-align: middle;
+            font-weight: 400;
+            color: #1d1d1f;
+            font-size: 14.5px;
+        }
+        
+        /* 低电量样式精准还原 */
+        .status-bar-low-battery .fa-battery-quarter {
+            color: #ff3b30;
+            font-weight: 500;
+        }
+        
+        /* 充电样式优化 */
+        .status-bar-charging .fa-battery-three-quarters::after {
+            content: "\f0e7";
+            font-family: FontAwesome;
+            font-size: 10px;
+            position: relative;
+            left: -9px;
+            top: -2px;
+            color: #1d1d1f;
+        }
+
+        /* ========== 时间选择器优化 ========== */
+        .flatpickr-calendar {
+            width: 280px !important;
+            min-height: unset !important;
+            height: auto !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb !important;
+            padding: 12px !important;
+            font-family: inherit;
+        }
+        
+        .flatpickr-time {
+            width: 100% !important;
+            padding: 10px 5px !important;
+            height: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-around !important;
+        }
+        
+        .numInputWrapper {
+            width: 60px !important;
+            height: 38px !important;
+            border: 1px solid #e5e7eb !important;
+            border-radius: 8px !important;
+            margin: 0 5px !important;
+        }
+        
+        .numInput {
+            width: 100% !important;
+            height: 100% !important;
+            font-size: 16px !important;
+            line-height: 38px !important;
+            text-align: center !important;
+            border: none !important;
+            outline: none !important;
+            font-family: inherit;
+        }
+        
+        .flatpickr-am-pm {
+            font-size: 14px !important;
+            color: #0071e3 !important;
+            padding: 5px 8px !important;
+            height: 38px !important;
+            line-height: 38px !important;
+            font-weight: 600;
+        }
+        
+        .flatpickr-days {
+            display: none !important;
+        }
+
+        /* 隐藏无关元素 */
+        #trackImg, .gowallet-callout-container,
+        #bhn_ubutton, #ie_bhn_ubutton, .mSaveBtn {
+            display: none !important;
         }
     </style>
 
-    <!-- 控制面板 DOM 结构（移除生成按钮） -->
+    <!-- 控制面板 -->
     <div id="controlPanel">
         <p class="tips-text">先查卡片的国家、金额，再去 p 图</p>
+        
+        <!-- 状态栏控制 -->
+        <div class="control-group">
+            <label>iPhone状态栏样式</label>
+            <select id="status-style">
+                <option value="default">1. 基础款（LTE+满电）</option>
+                <option value="5g">2. 5G网络款（5G+80%电量）</option>
+                <option value="do-not-disturb">3. 勿扰模式款（专注模式+Wi-Fi）</option>
+                <option value="low-battery">4. 低电量款（LTE+20%红色电量）</option>
+                <option value="charging">5. 充电款（LTE+充电图标）</option>
+            </select>
+        </div>
+        
+        <div class="control-group">
+            <label>状态栏时间（美国风格）</label>
+            <input type="text" id="status-time" placeholder="选择时间（如 10:13 AM）" readonly>
+        </div>
+        
+        <!-- 金额/PIN码控制 -->
         <div class="control-group">
             <label>货币类型</label>
             <select id="cur">
@@ -171,21 +298,22 @@
                 <option value="£">£ 英镑</option>
             </select>
         </div>
+        
         <div class="control-group">
             <label>卡片金额</label>
             <input type="number" id="amt" min="1" step="1" placeholder="请输入金额">
         </div>
+        
         <div class="control-group">
             <label>PIN码（16位）</label>
             <input type="text" id="pin" maxlength="16" placeholder="请输入16位字母/数字">
             <div id="pinTip">PIN必须为16位字母/数字！</div>
         </div>
-
     </div>
 
-    <!-- 核心配置封装 -->
+    <!-- 优化后的核心脚本 -->
     <script>
-        // 全局配置常量（统一管理魔法值）
+        // 全局配置常量（集中管理）
         const APP_CONFIG = {
             DEFAULT_AMOUNT: 100,
             DEFAULT_CURRENCY: '$',
@@ -194,233 +322,255 @@
             TID: 'YK1PHH1DX97D1S1Z9HQR847P7C',
             COUNTRY_CODE: 'USD',
             PRODUCT_NAME: 'Apple Gift Card',
-            PHONE_NUMBER: '07675043504'
+            PHONE_NUMBER: '07675043504',
+            // 状态栏配置
+            STATUS_BAR_STYLES: {
+                default: {
+                    html: '<i class="fa fa-signal" aria-hidden="true"></i><span>LTE</span><i class="fa fa-battery-full" aria-hidden="true"></i>',
+                    class: ''
+                },
+                '5g': {
+                    html: '<i class="fa fa-signal" aria-hidden="true"></i><span>5G</span><i class="fa fa-battery-three-quarters" aria-hidden="true"></i><span>80%</span>',
+                    class: ''
+                },
+                'do-not-disturb': {
+                    html: '<i class="fa fa-moon-o" aria-hidden="true"></i><i class="fa fa-wifi" aria-hidden="true"></i><i class="fa fa-battery-full" aria-hidden="true"></i>',
+                    class: ''
+                },
+                'low-battery': {
+                    html: '<i class="fa fa-signal" aria-hidden="true"></i><span>LTE</span><i class="fa fa-battery-quarter" aria-hidden="true"></i><span>20%</span>',
+                    class: 'status-bar-low-battery'
+                },
+                'charging': {
+                    html: '<i class="fa fa-signal" aria-hidden="true"></i><span>LTE</span><i class="fa fa-battery-three-quarters" aria-hidden="true"></i><span>90%</span>',
+                    class: 'status-bar-charging'
+                }
+            }
         };
 
-        // 工具函数封装
+        // 工具函数封装（复用性提升）
         const utils = {
-            // 获取DOM元素
-            $: (selector) => document.querySelector(selector),
+            // 安全的DOM查询
+            $: (selector) => {
+                const el = document.querySelector(selector);
+                if (!el) console.warn(`元素未找到: ${selector}`);
+                return el;
+            },
             // 生成唯一ID
             generateCorrelationId: () => crypto.randomUUID(),
-            // 格式化金额（保留货币符号）
-            formatAmount: (currency, amount) => `${currency}${amount}`
+            // 格式化金额
+            formatAmount: (currency, amount) => `${currency}${amount}`,
+            // 防抖函数
+            debounce: (func, delay = 300) => {
+                let timeoutId;
+                return (...args) => {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => func.apply(this, args), delay);
+                };
+            },
+            // 获取当前美国时间（格式化）
+            getCurrentUSATime: () => {
+                const options = { 
+                    hour: 'numeric', 
+                    minute: 'numeric', 
+                    hour12: true,
+                    timeZone: 'America/New_York'
+                };
+                return new Date().toLocaleTimeString('en-US', options).replace(/:/g, ':').replace(/\s+/g, ' ');
+            },
+            // 验证PIN码
+            validatePin: (pin) => {
+                return /^[A-Z0-9]{16}$/.test(pin);
+            }
         };
 
-        // 页面初始化逻辑
+        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function () {
-            // 初始化全局变量（隔离作用域）
+            // 初始化全局变量
             window.coRelationId = utils.generateCorrelationId();
             window.asJq = jQuery.noConflict();
 
-            // 核心元素缓存
-            const amountSpan = utils.$('#sbux-amount span');
-            const pinLink = utils.$('.pin span a');
-            const pinInput = utils.$('#pin');
-            const pinTip = utils.$('#pinTip');
-            const amtInput = utils.$('#amt');
-            const curSelect = utils.$('#cur');
+            // ========== 1. 状态栏初始化（优化版） ==========
+            initStatusBar();
+            
+            // ========== 2. 金额/PIN码初始化（优化版） ==========
+            initAmountPinControls();
+        });
 
-            // 初始化输入框值
-            function initInputValues() {
-                // 货币初始化
-                const cur = amountSpan ? amountSpan.textContent[0] : APP_CONFIG.DEFAULT_CURRENCY;
-                curSelect.value = ['$', '€', '£'].includes(cur) ? cur : APP_CONFIG.DEFAULT_CURRENCY;
+        /**
+         * 初始化状态栏功能（独立封装）
+         */
+        function initStatusBar() {
+            // 获取DOM元素（只查询一次）
+            const statusStyleSelect = utils.$('#status-style');
+            const statusIcons = utils.$('#status-icons');
+            const statusBar = utils.$('#custom-status-bar');
+            const statusTimeInput = utils.$('#status-time');
+            const statusTimeDisplay = utils.$('#status-time-display');
 
-                // 金额初始化
-                const num = amountSpan ? (amountSpan.textContent.match(/\d+/) || [APP_CONFIG.DEFAULT_AMOUNT])[0] : APP_CONFIG.DEFAULT_AMOUNT;
-                amtInput.value = num;
-
-                // PIN码初始化
-                const pin = pinLink ? pinLink.textContent : APP_CONFIG.DEFAULT_PIN;
-                pinInput.value = pin;
-                // 初始化提示隐藏
-                pinTip.style.display = 'none';
+            // 提前校验元素是否存在
+            if (!statusStyleSelect || !statusIcons || !statusBar || !statusTimeInput || !statusTimeDisplay) {
+                console.error('状态栏核心元素缺失，初始化失败');
+                return;
             }
 
-            // PIN码实时校验 + 实时同步到页面
+            // 初始化时间选择器（默认显示当前美国时间）
+            const defaultTime = utils.getCurrentUSATime();
+            const timePicker = flatpickr('#status-time', {
+                enableTime: true,
+                noCalendar: true,
+                time_24hr: false,
+                minuteIncrement: 1,
+                defaultDate: defaultTime,
+                dateFormat: "h:i K",
+                position: "bottom",
+                locale: "en",
+                onChange: function(selectedDates, dateStr) {
+                    statusTimeInput.value = dateStr;
+                    statusTimeDisplay.textContent = dateStr;
+                }
+            });
+
+            // 设置默认时间
+            statusTimeInput.value = defaultTime;
+            statusTimeDisplay.textContent = defaultTime;
+
+            // 状态栏样式切换（优化逻辑）
+            statusStyleSelect.addEventListener('change', utils.debounce(function() {
+                const styleKey = this.value;
+                const styleConfig = APP_CONFIG.STATUS_BAR_STYLES[styleKey] || APP_CONFIG.STATUS_BAR_STYLES.default;
+                
+                // 重置样式并应用新样式
+                statusBar.className = 'phone-status-bar';
+                if (styleConfig.class) {
+                    statusBar.classList.add(styleConfig.class);
+                }
+                
+                // 更新图标
+                statusIcons.innerHTML = styleConfig.html;
+            }, 100));
+
+            // 初始化默认样式
+            statusIcons.innerHTML = APP_CONFIG.STATUS_BAR_STYLES.default.html;
+        }
+
+        /**
+         * 初始化金额/PIN码控制（独立封装）
+         */
+        function initAmountPinControls() {
+            // 获取DOM元素（只查询一次）
+            const elements = {
+                amountSpan: utils.$('#sbux-amount span'),
+                pinLink: utils.$('.pin span a'),
+                pinInput: utils.$('#pin'),
+                pinTip: utils.$('#pinTip'),
+                amtInput: utils.$('#amt'),
+                curSelect: utils.$('#cur')
+            };
+
+            // 初始化输入框值（容错处理）
+            function initInputValues() {
+                // 货币初始化
+                const cur = elements.amountSpan ? elements.amountSpan.textContent[0] : APP_CONFIG.DEFAULT_CURRENCY;
+                if (elements.curSelect) {
+                    elements.curSelect.value = ['$', '€', '£'].includes(cur) ? cur : APP_CONFIG.DEFAULT_CURRENCY;
+                }
+
+                // 金额初始化
+                const num = elements.amountSpan ? (elements.amountSpan.textContent.match(/\d+/) || [APP_CONFIG.DEFAULT_AMOUNT])[0] : APP_CONFIG.DEFAULT_AMOUNT;
+                if (elements.amtInput) {
+                    elements.amtInput.value = num;
+                }
+
+                // PIN码初始化
+                const pin = elements.pinLink ? elements.pinLink.textContent : APP_CONFIG.DEFAULT_PIN;
+                if (elements.pinInput) {
+                    elements.pinInput.value = pin;
+                }
+                if (elements.pinTip) {
+                    elements.pinTip.style.display = 'none';
+                }
+            }
+
+            // PIN码校验（防抖处理）
             function initPinValidation() {
-                // 实时过滤非法字符 + 长度提示 + 同步到页面
-                pinInput.addEventListener('input', function (e) {
-                    // 仅保留大写字母和数字
+                if (!elements.pinInput || !elements.pinTip || !elements.pinLink) return;
+
+                // 实时校验（防抖）
+                elements.pinInput.addEventListener('input', utils.debounce(function (e) {
+                    // 格式化输入：大写 + 仅字母数字
                     this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-                    // 限制最大长度16位（自动截断）
+                    
+                    // 长度限制
                     if (this.value.length > 16) {
                         this.value = this.value.slice(0, 16);
                     }
-                    // 实时显示/隐藏提示
-                    if (this.value.length > 0 && this.value.length !== 16) {
-                        pinTip.style.display = 'block';
-                    } else {
-                        pinTip.style.display = 'none';
+                    
+                    // 校验反馈
+                    const isValid = utils.validatePin(this.value);
+                    elements.pinTip.style.display = (this.value.length > 0 && !isValid) ? 'block' : 'none';
+                    
+                    // 同步到页面（仅当有效时）
+                    if (this.value) {
+                        elements.pinLink.textContent = this.value;
+                        elements.pinLink.href = elements.pinLink.href.replace(/[A-Z0-9]{16}/, this.value);
                     }
-                    // 实时同步到页面（输入即生效）
-                    if (pinLink && this.value.length === 16) {
-                        pinLink.textContent = this.value;
-                        pinLink.href = pinLink.href.replace(/[A-Z0-9]{16}/, this.value);
-                    }
-                });
+                }, 200));
 
-                // 失去焦点时校验
-                pinInput.addEventListener('blur', function (e) {
-                    if (this.value.length === 0) {
-                        pinTip.style.display = 'none';
-                        return;
-                    }
-                    if (this.value.length !== 16) {
-                        pinTip.style.display = 'block';
-                        return;
-                    }
-                    pinTip.style.display = 'none';
-                });
-
-                // 获得焦点时隐藏提示
-                pinInput.addEventListener('focus', function () {
-                    if (this.value.length === 16) {
-                        pinTip.style.display = 'none';
-                    }
+                // 失去焦点校验
+                elements.pinInput.addEventListener('blur', function () {
+                    const isValid = utils.validatePin(this.value);
+                    elements.pinTip.style.display = (this.value.length > 0 && !isValid) ? 'block' : 'none';
                 });
             }
 
-            // 金额输入校验 + 实时同步到页面
+            // 金额校验（防抖处理）
             function initAmountValidation() {
-                amtInput.addEventListener('input', function () {
-                    // 金额不能为空且≥1
+                if (!elements.amtInput || !elements.amountSpan || !elements.curSelect) return;
+
+                // 实时校验
+                elements.amtInput.addEventListener('input', utils.debounce(function () {
+                    // 最小值限制
                     if (this.value < 1) {
                         this.value = 1;
                     }
-                    // 实时同步到页面（输入即生效）
-                    if (amountSpan && this.value) {
-                        amountSpan.textContent = utils.formatAmount(curSelect.value, this.value);
+                    
+                    // 同步到页面
+                    if (this.value) {
+                        elements.amountSpan.textContent = utils.formatAmount(elements.curSelect.value, this.value);
                     }
-                });
+                }, 200));
 
-                // 金额失去焦点时格式化
-                amtInput.addEventListener('blur', function () {
+                // 失去焦点校验
+                elements.amtInput.addEventListener('blur', function () {
                     if (!this.value) {
                         this.value = APP_CONFIG.DEFAULT_AMOUNT;
                     } else if (this.value < 1) {
                         this.value = 1;
                     }
-                    // 同步到页面
-                    if (amountSpan) {
-                        amountSpan.textContent = utils.formatAmount(curSelect.value, this.value);
-                    }
+                    elements.amountSpan.textContent = utils.formatAmount(elements.curSelect.value, this.value);
                 });
             }
 
-            // 货币切换实时同步到页面
+            // 货币切换同步
             function initAmountSync() {
-                // 货币切换同步
-                curSelect.addEventListener('change', function (e) {
-                    if (amountSpan && amtInput.value) {
-                        amountSpan.textContent = utils.formatAmount(e.target.value, amtInput.value);
+                if (!elements.curSelect || !elements.amountSpan || !elements.amtInput) return;
+
+                elements.curSelect.addEventListener('change', function (e) {
+                    if (elements.amtInput.value) {
+                        elements.amountSpan.textContent = utils.formatAmount(e.target.value, elements.amtInput.value);
                     }
                 });
             }
 
-            // 初始化所有逻辑
+            // 执行初始化
             initInputValues();
             initPinValidation();
             initAmountValidation();
             initAmountSync();
-        });
-    </script>
-</head>
+        }
 
-<body>
-    <div id="catalogLanDropDownParent">
-        <select name="language" id="catalogLangDropDown" style="display: none"></select>
-    </div>
-
-    <div id="widget-sign-in"></div>
-
-    <div class="boilerplate">
-        <div id="main">
-            <div class="balance">
-                <p id="sbux-amount"><span>$100</span> Apple Gift Card</p>
-            </div>
-            <div class="heading">
-                <p>Apple Store, Apple Music, iPhone,</p>
-                <p> iPad, AirPods, accessories, and more</p>
-            </div>
-            <div class="cardInfo">
-                <div class="showCard imagePos">
-                    <img src="https://content.blackhawknetwork.com/gcmimages/product/xlarge/W7SB3C6N5XV0QJA3WWGA0YWGQC_0608202322:59:18.PNG"
-                        alt="Gift Card">
-                </div>
-                <div class="pin">
-                    <p>PIN:
-                        <span><a href="https://www.appstore.com/redeem/XQ7CN7K28CGX894P"
-                                target="_blank">XQ7CN7K28CGX894P</a></span>
-                    </p>
-                </div>
-                <div class="PinInstruction">
-                    <p>To redeem, simply click on the code above.</p>
-                </div>
-            </div>
-            <div class="cardInfo2">
-                <div class="cardNum">
-                    <h2>One gift card. Everything Apple.</h2>
-                    <div class="desktop">
-                        <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/itunes_desktop.png"
-                            alt="logo1">
-                    </div>
-                    <div class="mobile">
-                        <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/mobile_icons.jpg"
-                            alt="logo2">
-                    </div>
-                    <div class="description">
-                        <p>Use the Apple Gift Card to get products, accessories, apps,</p>
-                        <p>games, music, movies, TV shows, and more. Spend it on</p>
-                        <p>in-app content, books, subscriptions and even iCloud+</p>
-                        <p>storage to secure files from all your Apple devices.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gcmCopy">
-                <div class="instructions">
-                    <div class="redeem">
-                        <h3>How to use:</h3>
-                        <span>Go to <a href="https://apple.com/redeem" target="_blank">apple.com/redeem</a> to add to
-                            your</span>
-                        <span>Apple Account. Use your balance for online and Apple Store purchases.</span>
-                    </div>
-                    <div class="wallet">
-                        <div class="image">
-                            <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/Wallet.png"
-                                alt="wallet_img">
-                        </div>
-                        <span>As part of Wallet, your Apple Account balance is a quick, convenient way to pay when
-                            shopping at an Apple Store or apple.com.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="gcmTerms">
-                <div class="headingText">
-                    <h4 class="warning">Beware of gift card scams. Do not share your code.</h4>
-                </div>
-                <!-- 合并重复的条款文本 -->
-                <div class="terms conditions" style="display:block;">
-                    <h5>Terms and Conditions</h5>
-                    <p>Valid only for U.S. transactions in Apple properties. For assistance, visit <a
-                            href="https://support.apple.com/en-us/" target="_blank">support.apple.com/giftcard</a> or
-                        call 1-800-275-2273. Not redeemable at Apple resellers or for cash, and no resale, refunds, or
-                        exchanges, except as required by law. Apple is not responsible for unauthorized use. Terms
-                        apply; see <a href="https://apple.com/us/go/legal/gc"
-                            target="_blank">apple.com/us/go/legal/gc</a>. Issued by Apple Value Services, LLC (AVS).</p>
-                    <p>© 2025 Apple Inc. All rights reserved.</p>
-                </div>
-                <div class="extOrder" id="orderID"> </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="samsungpasscontainer"></div>
-
-    <!-- 业务逻辑封装 -->
-    <script>
-        // 钱包相关逻辑
+        // ========== 原有业务逻辑（保留） ==========
         async function postWallets(data) {
             data.deviceType = navigator.userAgent;
             const url = `/eventLogs?eid=${APP_CONFIG.EID}&tid=${APP_CONFIG.TID}`;
@@ -497,7 +647,6 @@
             try {
                 payloadData.deviceType = navigator.userAgent;
                 const newWindow = window.open("", "_blank");
-                // 弹窗拦截检测
                 if (!newWindow) {
                     alert('弹窗被浏览器拦截，请允许弹窗后重试');
                     return;
@@ -520,7 +669,6 @@
             }
         }
 
-        // Apple钱包点击事件
         if (document.getElementById("passLink")) {
             document.getElementById("passLink").onclick = function () {
                 walletClickEvent("APPLE");
@@ -543,11 +691,9 @@
             generateToken(endPoint, payloadData);
         }
 
-        // 合并window.onload逻辑
         window.addEventListener('load', function () {
             walletsVisibleLog("");
 
-            // Google Analytics 初始化
             (function (i, s, o, g, r, a, m) {
                 i["GoogleAnalyticsObject"] = r;
                 i[r] = i[r] || function () {
@@ -562,9 +708,7 @@
             ga("send", "event", "Apple", "Apple");
         });
 
-        // jQuery逻辑封装
         asJq(document).ready(function () {
-            // 防重复点击
             asJq("#btnOpenLoopWallet").on('click', function (event) {
                 event.preventDefault();
                 var el = asJq(this);
@@ -573,7 +717,6 @@
                 setTimeout(() => el.prop('disabled', false), 4000);
             });
 
-            // 语言下拉框逻辑
             let showCatalogdropdown = true;
             const $langDropdown = asJq("#catalogLangDropDown");
             if ($langDropdown.find('option').length <= 1 || asJq(".mainDivLn").length !== 0) {
@@ -593,7 +736,6 @@
                 });
             }
 
-            // 响应式按钮逻辑
             const buttonRow = document.querySelector('.button-row');
             const shareButton = document.querySelector('.walletShareH');
             const bannerTop = document.querySelector('.bannerTopH');
@@ -616,7 +758,6 @@
             }
         });
 
-        // 页面埋点逻辑
         function pushPageLoadEvent(eventType, pageName, url, hash, currency, amount, product, tid, phone, email, experiment, variant, userId, eventSubType) {
             console.log(`Page event: ${eventType}`, { pageName, amount, currency });
         }
@@ -625,7 +766,6 @@
             console.log(`Experiment event: ${eventType}`, { pageName, amount, currency });
         }
 
-        // 页面加载/卸载埋点
         pushPageLoadEvent(
             'page|load',
             'egift-next',
@@ -662,7 +802,6 @@
             );
         };
 
-        // Hotjar 初始化
         if ("5228614" && "6") {
             (function (h, o, t, j, a, r) {
                 h.hj = h.hj || function () {
@@ -677,7 +816,6 @@
             })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
         }
 
-        // New Relic 配置
         window.NREUM || (NREUM = {});
         NREUM.info = {
             "errorBeacon": "bam.nr-data.net",
@@ -690,28 +828,115 @@
             "queueTime": 0
         };
     </script>
+</head>
 
-    <!-- 必要的脚本引入 -->
-    <script src="scripts/googleTagManager.js"></script>
+<body>
+    <div id="catalogLanDropDownParent">
+        <select name="language" id="catalogLangDropDown" style="display: none"></select>
+    </div>
+
+    <div id="widget-sign-in"></div>
+
+    <div class="boilerplate">
+        <div id="main">
+            <!-- 状态栏展示区域 -->
+            <div class="phone-status-bar" id="custom-status-bar">
+                <div class="status-left" id="status-time-display">10:13 AM</div>
+                <div class="status-right" id="status-icons">
+                    <i class="fa fa-signal" aria-hidden="true"></i>
+                    <span>LTE</span>
+                    <i class="fa fa-battery-full" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <!-- 礼品卡内容 -->
+            <div class="balance">
+                <p id="sbux-amount"><span>$100</span> Apple Gift Card</p>
+            </div>
+            <div class="heading">
+                <p>Apple Store, Apple Music, iPhone,</p>
+                <p> iPad, AirPods, accessories, and more</p>
+            </div>
+            <div class="cardInfo">
+                <div class="showCard imagePos">
+                    <img src="https://content.blackhawknetwork.com/gcmimages/product/xlarge/W7SB3C6N5XV0QJA3WWGA0YWGQC_0608202322:59:18.PNG"
+                        alt="Gift Card">
+                </div>
+                <div class="pin">
+                    <p>PIN:
+                        <span><a href="https://www.appstore.com/redeem/XQ7CN7K28CGX894P"
+                                target="_blank">XQ7CN7K28CGX894P</a></span>
+                    </p>
+                </div>
+                <div class="PinInstruction">
+                    <p>To redeem, simply click on the code above.</p>
+                </div>
+            </div>
+            <div class="cardInfo2">
+                <div class="cardNum">
+                    <h2>One gift card. Everything Apple.</h2>
+                    <div class="desktop">
+                        <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/itunes_desktop.png"
+                            alt="logo1">
+                    </div>
+                    <div class="mobile">
+                        <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/mobile_icons.jpg"
+                            alt="logo2">
+                    </div>
+                    <div class="description">
+                        <p>Use the Apple Gift Card to get products, accessories, apps,</p>
+                        <p>games, music, movies, TV shows, and more. Spend it on</p>
+                        <p>in-app content, books, subscriptions and even iCloud+</p>
+                        <p>storage to secure files from all your Apple devices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gcmCopy">
+                <div class="instructions">
+                    <div class="redeem">
+                        <h3>How to use:</h3>
+                        <span>Go to <a href="https://apple.com/redeem" target="_blank">apple.com/redeem</a> to add to
+                            your</span>
+                        <span>Apple Account. Use your balance for online and Apple Store purchases.</span>
+                    </div>
+                    <div class="wallet">
+                        <div class="image">
+                            <img src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/images/Wallet.png"
+                                alt="wallet_img">
+                        </div>
+                        <span>As part of Wallet, your Apple Account balance is a quick, convenient way to pay when
+                            shopping at an Apple Store or apple.com.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gcmTerms">
+                <div class="headingText">
+                    <h4 class="warning">Beware of gift card scams. Do not share your code.</h4>
+                </div>
+                <div class="terms conditions" style="display:block;">
+                    <h5>Terms and Conditions</h5>
+                    <p>Valid only for U.S. transactions in Apple properties. For assistance, visit <a
+                            href="https://support.apple.com/en-us/" target="_blank">support.apple.com/giftcard</a> or
+                        call 1-800-275-2273. Not redeemable at Apple resellers or for cash, and no resale, refunds, or
+                        exchanges, except as required by law. Apple is not responsible for unauthorized use. Terms
+                        apply; see <a href="https://apple.com/us/go/legal/gc"
+                            target="_blank">apple.com/us/go/legal/gc</a>. Issued by Apple Value Services, LLC (AVS).</p>
+                    <p>© 2025 Apple Inc. All rights reserved.</p>
+                </div>
+                <div class="extOrder" id="orderID"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="samsungpasscontainer"></div>
+
+    <!-- 延迟加载非核心脚本 -->
+    <script defer src="https://cdn.bootcdn.net/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script defer src="https://cdn.bootcdn.net/ajax/libs/flatpickr/4.6.13/l10n/en.min.js"></script>
+    <script defer src="scripts/googleTagManager.js"></script>
     <script async src="https://assets.adobedtm.com/5402c6525a0d/9e9dda26e937/launch-577998b63e27.min.js"></script>
-    <script type="text/javascript"
-        src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/script/template.js"></script>
-    <script type="text/javascript" src="scripts/dataDomeScript.js"></script>
-    <script type="text/javascript" src="scripts/global-footer.js"></script>
-
-    <!-- 样式修正 -->
-    <style type="text/css">
-        #trackImg,
-        .gowallet-callout-container {
-            display: none !important;
-        }
-
-        #bhn_ubutton,
-        #ie_bhn_ubutton,
-        .mSaveBtn {
-            display: none !important;
-        }
-    </style>
+    <script defer type="text/javascript" src="https://content.blackhawknetwork.com/gcmimages/View/37DQFW6Z5RZR2BADH857MX9PVC/script/template.js"></script>
+    <script defer type="text/javascript" src="scripts/dataDomeScript.js"></script>
+    <script defer type="text/javascript" src="scripts/global-footer.js"></script>
 </body>
-
 </html>
